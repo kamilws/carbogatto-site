@@ -1,0 +1,44 @@
+@import "mixins.styl"
+
+section.main.index
+  .create-block
+    container-styles()
+    slide()
+    .title
+      margin-bottom 2em
+    .bike-icon
+      display block
+      margin 0 auto 3em auto
+      width 285px
+      height 133px
+    p
+      margin 0 auto 2em auto
+      width 17.5em
+    .button
+      padding-left 4em
+      padding-right 4em
+      margin-bottom 2em
+
+    @media (min-width mup)
+      margin-bottom 8em
+      .title
+        margin-bottom 0
+      .bike-icon
+        width 787px
+        height 366px
+        margin-bottom .7em
+      p
+        width auto
+        margin-bottom .5em
+
+      @media (min-height 700px)
+        display grid
+        grid-auto-flow column
+        grid-template-rows .5fr 3fr 1fr 1fr
+        .bike-icon, p
+          margin-bottom 0
+      @media (min-height 800px)
+        grid-template-rows .8fr 2.8fr 1fr 1fr
+      @media (max-aspect-ratio index-large)
+        min-height 0
+        grid-template-rows 1fr 440px 1.4fr 1fr

@@ -19,7 +19,7 @@ var $default_settings = array(
  add_theme_page('WP Theme Options', 'Contacts', 8, "themadmin", array(&$this, 'optionsmenu'));
  }
 
- // Сохраняем значения формы с настройками 
+ // Сохраняем значения формы с настройками
  function optionsmenu() {
  if ($_POST['ss_action'] == 'save') {
  $this->options["phone"] = $_POST['cp_phone'];
@@ -29,7 +29,7 @@ var $default_settings = array(
  $this->options["youtube"] = $_POST['cp_youtube'];
  $this->options["twitter"] = $_POST['cp_twitter'];
  $this->options["instagram"] = $_POST['cp_instagram'];
- 
+
  $this->options["copy"] = $_POST['cp_copy'];
  $this->options["metrika"] = $_POST['cp_metrika'];
  update_option('themadmin', $this->options);
@@ -63,4 +63,25 @@ var $default_settings = array(
 }
 $cpanel = new ControlPanel();
 $mytheme = get_option('themadmin');
-?>
+
+function js_url() {
+    $content = file_get_contents(get_template_directory() . "/build/js/js.json");
+    $result = json_decode($content);
+    return esc_url(get_template_directory_uri()). "/build/js/{$result->app->js}";
+}
+
+function css_url() {
+    $content = file_get_contents(get_template_directory() . "/build/styles/styles.json");
+    $result = json_decode($content, true);
+    echo esc_url(get_template_directory_uri()). "/build/styles/{$result['app.css']}";
+}
+
+function sprite_url() {
+    $content = file_get_contents(get_template_directory() . "/build/styles/svg-sprite.json");
+    $result = json_decode($content, true);
+    echo esc_url(get_template_directory_uri()). "/build/styles/{$result['svg-sprite.svg']}";
+}
+
+function get_partial($partial) {
+    require(get_template_directory(). "/template-parts/{$partial}.php");
+}

@@ -1,0 +1,211 @@
+.modal-component.__order
+  z-index 200
+  .ct-mc-content
+    &.__after-order
+      background white image-url('main/order-modal-combs.svg') no-repeat calc(100% + 30px) 0 / 600px
+  .order-content
+    display block
+  .after-order-content
+    display none
+  .right-text
+    float right
+    width 130px
+    text-align right
+    font-size .9em
+    padding-top 2em
+    background image-url('svg-sprite/warning.svg') no-repeat right top / 15px
+  .par
+    margin-bottom 4em
+    font-size .86em
+  .form-group
+    width 100%
+    margin-bottom 1.4em
+    .label
+      color #787878
+    input[type=text], input[type=tel], input[type=email]
+      border 1px solid rgb(188, 188, 188)
+      outline none
+      display block
+      width 100%
+      box-sizing border-box
+      padding .5em .4em
+      box-shadow none
+      border-radius 0
+      appearance none
+      &:focus
+        border-color color-blue
+  table
+    border-collapse collapse
+    width 100%
+    margin-bottom 1.5em
+    tr
+      &.__title
+        td
+          padding-bottom .4em
+          border none
+          font-size 1.1em
+          &:first-of-type
+            text-transform uppercase
+            font-weight bold
+            color black
+        &.__total
+          td
+            border-bottom 1px solid #ccc
+      td
+        padding .6rem 0
+        border-top 1px solid color-blue
+        border-bottom 1px solid color-blue
+        text-align right
+        font-size .7rem
+        @extend .clearfix
+        &:first-of-type
+          text-align left
+          color #787878
+        &:last-of-type
+          width 70px
+        &.__quantity
+          text-align center
+          font-size .7rem
+          width 40px
+          padding .3em 0
+          select
+            outline none
+            border none
+            background transparent
+            width 4em
+            border-radius 0
+            color black
+            background image-url('main/select-bg.png') no-repeat 100% 0 / 7px
+            padding .7em 0 .7em 1em
+            appearance none
+            box-sizing border-box
+        .price
+          float right
+          margin-top .4em
+        svg.__delete-bike, svg.__delete-acc
+          float right
+          cursor pointer
+          fill color-blue
+          width 7px
+          height @width
+          padding 3px 0 3px 7px
+        svg.selected-color
+          float left
+          width 10px
+          height @width
+          margin -.2em 0 0 .4em
+          &.__carbon
+            background image-url('pages/buy/carbon.png') no-repeat top center / contain
+        .color-name
+          float left
+  button
+    float left
+    padding-left 2em
+    padding-right @padding-left
+  .checkbox
+    position relative
+    @extend .clearfix
+    margin.7em 0 0 2em
+    float left
+    input
+      position absolute
+      left 0
+      top 0
+      opacity 0
+    em
+      float left
+      border 1px solid #787878
+      width 12px
+      height 12px
+      position relative
+      svg
+        width 10px
+        height 10px
+        position absolute
+        left 1px
+        top 1px
+        display none
+        fill color-blue
+    input:checked + em
+      svg
+        display inline-block
+    span
+      float left
+      margin .3em 0 0 .4em
+      font-size .85em
+  .terms
+    clear both
+    padding 1em 0
+    text-align center
+    a
+      border-bottom 1px solid rgba(color-blue, .3)
+      &:hover
+        text-decoration none
+        border-bottom-color transparent
+  @media (min-width mup)
+    .ct-mc-content
+      &.__after-order
+        background-position-x calc(100% + 70px)
+        background-size 1700px
+    .right-text
+      float right
+      width 380px
+      font-size .8em
+      text-align right
+      background-size 30px
+      padding-top 2.5em
+    .par
+      margin-bottom 3em
+    .form-group
+      float left
+      width 30%
+      margin-right 5%
+      box-sizing border-box
+      margin-bottom 4em
+      &.__last
+        margin-right 0
+    table
+      tr
+        &.__title
+          td
+            font-size 1.2em
+          &.__total
+            td
+              padding-top 2em
+        td
+          font-size .8em
+          svg.__delete-bike, svg.__delete-acc
+            right 2px
+            margin-top 3px
+            padding 0
+            width 12px
+            height @width
+          svg.selected-color
+            width 18px
+            height @width
+            margin -.1em 0 0 .5em
+          &:last-of-type
+            width 200px
+          &.__quantity
+            font-size .8em
+            padding 0
+            color #787878
+            select
+              background-size 10px
+              background-position 100% .5em
+          .price
+            margin .2em .8em 0 0
+    .checkbox
+      em
+        width 20px
+        height @width
+        svg
+          left 2px
+          top 2px
+          width 16px
+          height @width
+      span
+        margin-left .6em
+    .terms
+      clear none
+      float right

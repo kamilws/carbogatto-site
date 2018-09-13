@@ -1,0 +1,101 @@
+//Секция содержит стили как для листинга новостей так и для страницы отдельной новости
+//т.к. страница отдельной новости содержит блок с картинкой почти такой же как в листинге
+section.main.news
+  .button-component
+    background color-blue
+    border-color color-blue
+    &.__back
+      padding-left 2.3em
+      padding-right 1.8em
+      background color-blue image-url('main/arrow-left-white.png') no-repeat 10% 45% / auto 50%
+  article
+    .site-container
+      background no-repeat right bottom
+      background-size 320px
+      padding 1.8em container-padding 1.5em container-padding
+    time
+      text-transform uppercase
+      font-weight bold
+      font-size .8em
+      opacity .5
+      display block
+      margin-bottom 1em
+      span:not(:last-of-type)
+        &::after
+          content: '|'
+          margin 0 .7em
+    .title
+      font-size 1.67em
+      text-transform uppercase
+      font-weight bold
+      margin-bottom .7em
+    .desc
+      font-size 1.18em
+      margin 0 10em 170px 0
+      line-height 1.5
+    &.__yellow
+      background-color #ffd600
+    &.__black
+      background-color #222222
+      color white
+      .desc
+        opacity .9
+    &.__white
+      background-color white
+    &.__blue
+      background-color color-blue
+      color white
+      time
+        color black
+      .button-component
+        background-color white
+        color color-blue
+        &.__back
+          background-image image-url('main/arrow_prev.png')
+    &.__photo
+      color white
+      .site-container
+        background-position left top
+        background-size auto 100%
+  //Контент отдельной новости
+  .new-content
+    padding 1em 2em 2em 2em
+    p
+      margin 1.3em 0
+      font-size 1.33em
+    .button-container
+      text-align center
+      margin 3em 0 1em 0
+
+  @media (min-width mup)
+    .button-component
+      font-size 1em
+    article
+      .site-container
+        padding-top 3em
+        padding-bottom 8em
+        position relative
+        min-height 500px
+        box-sizing border-box
+        background-size auto
+        padding-left 1.3em
+      time
+        font-size .93em
+      .title
+        width 550px
+        font-size 1.94em
+        line-height 1.2
+      .desc
+        width 450px
+        font-size 1.03em
+        margin-bottom 0
+      .button-component
+        position absolute
+        left container-padding + 5px
+        bottom 2.5em
+    .new-content
+      margin 0 auto
+      width 800px
+      padding 3em 0
+      p
+        font-size 1.14em

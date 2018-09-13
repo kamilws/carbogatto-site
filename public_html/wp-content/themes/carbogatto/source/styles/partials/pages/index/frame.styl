@@ -1,0 +1,47 @@
+@import "mixins"
+
+section.main.index
+  .frame-block
+    container-styles()
+    slide()
+    .text-block
+      margin-right 12em
+      min-height 110px
+    .carbon
+      position absolute
+      right 0
+      width 90px
+      top calc(100% + 1.7em)
+      .text
+        opacity 0
+        text-transform uppercase
+        color rgba(#c6c6c6, .6)
+        font-size .75em
+        padding 90px 2em 2em 2em
+        text-align center
+        background no-repeat image-url('pages/index/carbon.png') 50% 10px / 70px
+        box-sizing border-box
+      .line
+        border-top 1px solid rgba(#c6c6c6, .3)
+        transform translateY(-100%)
+
+    @media (min-width mup)
+      mup-video-block()
+      .carbon
+        top 30%
+        right auto
+        left 68%
+        width 300px
+        .text
+          text-align left
+          font-size 1.19em
+          padding 2.2em 0 2.2em 150px
+          background-size 130px
+          background-position 0 15px
+        .line
+          border-top-width 2px
+          border-bottom-width 2px
+      @media (max-aspect-ratio index-small)
+        .carbon
+          top 45%
+

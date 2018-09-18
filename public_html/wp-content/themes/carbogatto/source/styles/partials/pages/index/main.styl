@@ -20,14 +20,14 @@ html.desktop
       position absolute
       left 50%
       top 50%
-      margin -50px 0 0 -36px
+      margin -27px 0 0 -24px
       z-index 2
       .preloader-icon
-        width 72px
-        height 82px
+        width 48px
+        height 55px
         overflow hidden
         position relative
-        margin-bottom 12px
+        margin-bottom 8px
         &-conic
           position absolute
           left -15%
@@ -46,10 +46,23 @@ html.desktop
           margin -1px
           background no-repeat image-url('pages/index/conic-hex.svg?ver=1') top center / contain
       .preloader-text
-        font-size 15px
+        font-size 10px
         color color-blue
         text-transform uppercase
         text-align center
+      @media (min-width 1270px)
+        margin -50px 0 0 -36px
+        .preloader-icon
+          width 72px
+          height 82px
+          margin-bottom 12px
+        .preloader-text
+          font-size 15px
+
+
+
+
+
 
 section.main.index
   color white

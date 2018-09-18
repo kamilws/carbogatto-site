@@ -6,6 +6,8 @@ import isSafari from '@/components/is_safari'
 
 class Slides {
   constructor(options) {
+    //return
+
     this.elem = options.elem
     this.menuButtonElem = this.elem.find('.menu-button')
     this.busy = false
@@ -48,7 +50,7 @@ class Slides {
     //На десктопе показывается иконка меню. По клику не нее отметываем на первый слайд
     this.menuButtonElem.click(() => {
       //Если это не десктоп
-      if(!device.desktop()) {
+      if (!device.desktop()) {
         $.scrollTo(0, 500)
         return
       }

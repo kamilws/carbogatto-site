@@ -1,0 +1,28 @@
+@import "mixins.styl"
+
+section.main.index
+  .battery-block
+    container-styles()
+    slide()
+    .text-block
+      margin-right 10em
+      min-height 85px
+    .icons-block
+      right 0
+    @media (min-width mup)
+      mup-video-block()
+      .video-container
+        margin-top 0 !important
+        .preloader
+          top 7%
+      .icons-block
+        right 20%
+        top 15%
+      .text-block
+        border none !important
+        padding-top 1em
+        background linear-gradient(to top, rgba(black, .75), rgba(black, .75) 80%, rgba(black, 0))
+      @media (max-aspect-ratio index-medium)
+        .video-container
+          .preloader
+            top 12%

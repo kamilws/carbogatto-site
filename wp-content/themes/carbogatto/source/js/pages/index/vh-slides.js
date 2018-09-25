@@ -53,14 +53,12 @@ class Slides {
     //При ресайзе нужно подкрутить прокрутку к текущему слайду
     $(window).resize(_debounce(this.resizeAdjust.bind(this), 400))
 
-    //На десктопе показывается иконка меню. По клику не нее отметываем на первый слайд
+    //На десктопе показывается иконка меню
     this.menuButtonElem.click(() => {
-      //Если это не десктоп
-      if (!device.desktop()) {
-        $.scrollTo(0, 500)
-        return
-      }
-      this.move('prev', $(this.elem.find('.pagination svg').first().data('slide')))
+      $('nav.main').toggleClass('__active')
+    })
+    $('nav.main .close').click(() => {
+      $('nav.main').toggleClass('__active')
     })
   }
 
@@ -79,7 +77,7 @@ class Slides {
   initPagination() {
     this.elem.click(e => {
       if (this.busy) return
-      let pagElem = $(e.target).closest('.pagination svg:not(.__active)')
+      let pagElem = $(e.target).closest('.pagination [data-slide]:not(.__active)')
       if (!pagElem.length) return
       this.move('next', $(pagElem.data('slide')))
     })
@@ -398,7 +396,7 @@ class Slides {
 
   setCurrentPagElem() {
     let currentPagElem
-    this.elem.find('.pagination svg').each((index, elem) => {
+    this.elem.find('.pagination [data-slide]').each((index, elem) => {
       let selector = $(elem).data('slide')
       if (this.currentSlideElem.is(selector)) {
         currentPagElem = $(elem)
@@ -406,7 +404,7 @@ class Slides {
     })
 
     if (currentPagElem) {
-      this.elem.find('.pagination svg').removeClass('__active')
+      this.elem.find('.pagination [data-slide]').removeClass('__active')
       currentPagElem.addClass('__active')
     }
   }

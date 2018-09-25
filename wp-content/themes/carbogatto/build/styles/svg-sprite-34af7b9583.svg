@@ -65,6 +65,10 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd">
         <polygon id="Polygon" stroke="#000000" stroke-width="4" points="29.5 3 56.7798002 18.75 56.7798002 50.25 29.5 66 2.22019978 50.25 2.22019978 18.75"/>
     </g>
+</symbol><symbol id="svg-hex-stroke" viewBox="0 0 55 63">
+    <g id="Page-1" stroke="white" stroke-width="1" fill-rule="evenodd">
+        <polygon id="Polygon" points="27.5 0 54.7798002 15.75 54.7798002 47.25 27.5 63 0.220199781 47.25 0.220199781 15.75"/>
+    </g>
 </symbol><symbol id="svg-hex" viewBox="0 0 55 63">
     <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
     <title>Polygon</title>

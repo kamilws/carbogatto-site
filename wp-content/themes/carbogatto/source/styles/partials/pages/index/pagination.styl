@@ -12,14 +12,47 @@ html.desktop
         top 50%
         width 15px
         margin-top -130px
-        svg
+        span
           display inline-block
-          fill white
           width 12px
           height @width
           margin-bottom 4px
-          opacity .25
           cursor pointer
+          background no-repeat image-url('pages/index/hex.svg') top center / contain
+          position relative
+          &:hover:not(.__active)
+            background-image image-url('pages/index/hex-stroke.svg')
           &.__active
-            fill color-blue
-            opacity 1
+            background-image image-url('pages/index/hex-blue.svg')
+          &:hover
+            em
+              display inline-block
+          em
+            display none
+            white-space nowrap
+            text-transform uppercase
+            font-style normal
+            font-weight bold
+            letter-spacing .07em
+            font-size .9em
+            left 20px
+            top -7px
+            position absolute
+            background #353535 -33px -20px image-url('pages/index/pag-stripes.svg')
+            border 2px solid color-blue
+            border-radius 2px
+            line-height 1
+            box-sizing border-box
+            padding .3em .5em .2em .5em
+            &::before
+              content ' '
+              position absolute
+              left -16px
+              top 1.5px
+              caret(color-blue, 8px, left)
+            &::after
+              content ' '
+              position absolute
+              left -10px
+              top 4.5px
+              caret(#353535, 5px, left)

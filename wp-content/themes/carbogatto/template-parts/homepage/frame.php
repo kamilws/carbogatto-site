@@ -1,5 +1,5 @@
 <div class="frame-block vh-slide">
-  <?php get_partial('homepage/desktop-preloader') ?>
+    <?php get_partial('homepage/desktop-preloader') ?>
   <div class="site-container">
     <div class="container">
       <div class="title __absolute">Frame</div>

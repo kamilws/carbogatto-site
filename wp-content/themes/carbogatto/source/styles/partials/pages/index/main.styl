@@ -60,7 +60,7 @@ html.desktop
         color color-blue
         text-transform uppercase
         text-align center
-      @media (min-width 1280px)
+      @media (min-width lup)
         margin -90px 0 0 -25px
         .preloader-icon
           width 50px
@@ -139,7 +139,7 @@ section.main.index
       &.__play
         background-image image-url('pages/index/play.png')
       &.__replay
-        background-image image-url('pages/index/replay.png')
+        background-image image-url('pages/index/replay.png?ver=1')
       &.__pause
         background-image image-url('pages/index/pause.png')
 
@@ -327,6 +327,7 @@ section.main.index
       width 240px
       top 120px
       right 140px
+      transform scale(.5)
       .icons-line
         border-bottom-width 2px
       .icons-row
@@ -363,6 +364,8 @@ section.main.index
           margin-left 95px
           font-size 1.19em
 
+      @media (min-width lup)
+        transform none
     @media (max-aspect-ratio index-small)
       .video-container
         .preloader

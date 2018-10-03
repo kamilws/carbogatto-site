@@ -5,72 +5,51 @@ import isSafari from '@/components/is_safari'
 
 class Slides {
   constructor(options) {
-    //return
-
+    if (!device.desktop()) return
     this.elem = options.elem
     this.menuButtonElem = this.elem.find('.menu-button')
     this.busy = false
-    //Отматываем страницу наверх и ставим первый слайд и первое видео
-    if (device.desktop()) {
-      window.scrollTo(0, 0)
-      this.currentSlideElem = this.elem.find('.vh-slide').first()
-      this.currentVideoElem = this.currentSlideElem.find('video')
-      this.uploadVideo(this.currentVideoElem)
-    } else {
-      $('html, body').removeClass('no-scroll')
+    //Управляется ли скролл (он управляется только в сафари)
+    this.scrollControl = location.href.indexOf('?scrollControl') !== -1 && device.macos() && isSafari()
+    //В сафари есть кнопка управления скролом
+    if (device.macos() && isSafari()) {
+      let href = this.scrollControl ? '?' : '?scrollControl'
+      this.elem
+        .find('.top-block .scroll-icon')
+        .attr('href', href)
+        .show()
     }
 
+    window.scrollTo(0, 0)
+    this.currentSlideElem = this.elem.find('.vh-slide').first()
+    this.currentVideoElem = this.currentSlideElem.find('video')
+    this.uploadVideo(this.currentVideoElem)
+    this.initDesktopPosters()
+    this.initPagination()
+    if (this.scrollControl) {
+      $(document).on('wheel', this.wheelListener.bind(this))
+    } else {
+      $(document).on('wheel', this.fallbackWheelListener.bind(this))
+      //Запуск видео по клику на прелоадер
+      this.elem.find('.preloader').click(e => {
+        this.fallbackPlayVideo($(e.target).closest('.vh-slide').find('video'))
+      })
+    }
+    //Видео грузим друг за другом, чтобы они грузились по очереди, но были готовы как можно быстрее
+    this.elem.on('video:loaded', this.uploadNextVideo.bind(this))
+    //При ресайзе нужно подкрутить прокрутку к текущему слайду
+    $(window).resize(_debounce(this.resizeAdjust.bind(this), 400))
     //Блокируем управление скролом с помощью клавиш
     $(document).on('keydown', (e) => {
       if ([32, 38, 40].indexOf(e.keyCode) !== -1) {
         e.preventDefault()
       }
     })
-
-    //Управление скролом
-    if (device.desktop()) {
-      //Cтавим постеры
-      this.initDesktopPosters()
-      //Пагинация
-      this.initPagination()
-      //Десктопы
-      if (device.macos() && isSafari()) {
-        $(document).on('wheel', this.wheelListener.bind(this))
-        //$(document).on('wheel', this.fallbackWheelListener.bind(this))
-      } else {
-        $(document).on('wheel', this.fallbackWheelListener.bind(this))
-        //Запуск видео по клику на прелоадер
-        this.elem.find('.preloader').click(e => {
-          this.fallbackPlayVideo($(e.target).closest('.vh-slide').find('video'))
-        })
-      }
-      //Видео грузим друг за другом, чтобы они грузились по очереди, но были готовы как можно быстрее
-      this.elem.on('video:loaded', this.uploadNextVideo.bind(this))
-    } else {
-      this.initMobile()
-    }
-
-    //При ресайзе нужно подкрутить прокрутку к текущему слайду
-    $(window).resize(_debounce(this.resizeAdjust.bind(this), 400))
-
-    //На десктопе показывается иконка меню
-    this.menuButtonElem.click(() => {
-      $('nav.main').toggleClass('__active')
-    })
-    $('nav.main .close').click(() => {
-      $('nav.main').toggleClass('__active')
-    })
   }
 
   initDesktopPosters() {
     this.elem.find('video').each((index, elem) => {
       $(elem).attr('poster', $(elem).data('poster'))
-    })
-  }
-
-  initMobilePosters() {
-    this.elem.find('video').each((index, elem) => {
-      $(elem).attr('poster', $(elem).data('poster-mob'))
     })
   }
 
@@ -81,117 +60,6 @@ class Slides {
       if (!pagElem.length) return
       this.move('next', $(pagElem.data('slide')))
     })
-  }
-
-  //Инициализация телефонов и планшетов
-  initMobile() {
-    //На телефонах показывается одно видео и один постер
-    //на планшетах - другой постер и другое видео
-    if (device.mobile()) {
-      this.initMobilePosters()
-    } else {
-      this.initDesktopPosters()
-    }
-
-    //После воспроизведения
-    this.elem.find('video').on('ended', e => {
-      let video = $(e.target)
-      let preloader = video
-        .closest('.video-container, .video-block')
-        .find('.preloader')
-      video
-        .data('playing', false)
-        .data('paused', false)
-        .data('played', true)
-      preloader.removeClass('__pause __loading').addClass('__play')
-    })
-
-    //Начало воспроизведения (после паузы или первично или заново)
-    this.elem.find('video').on('playing', e => {
-      let video = $(e.target)
-      let preloader = video
-        .closest('.video-container, .video-block')
-        .find('.preloader')
-      preloader.removeClass('__play __loading').addClass('__pause')
-      video
-        .data('playing', true)
-        .data('paused', false)
-        .data('loading', false)
-    })
-
-    //Переход ко второму слайду
-    this.elem.find('.top-block .arrow').click(() => {
-      $.scrollTo(this.elem.find('.frame-block'), 800, {offset: -60})
-    })
-
-    //Обработка клика по видео
-    this.elem.click(this.processMobileVideoClick.bind(this))
-  }
-
-  processMobileVideoClick(e) {
-    let video = $()
-    if ($(e.target).is('video')) {
-      video = $(e.target)
-    }
-    if ($(e.target).closest('.video-container, .video-block').length) {
-      video = $(e.target).closest('.video-container, .video-block').find('video')
-    }
-
-    if (!video.length) return
-    if (video.data('loading')) return
-
-    let preloader = video
-      .closest('.video-container, .video-block')
-      .find('.preloader')
-
-    //Первичная инициализация видео
-    if (!video.data('inited')) {
-      //Ставим исходник. У планшетов десктопный исходник, у телефонов - мобильный
-      //у десктопного исходника нет расширения в дата-атрибуте
-      let src = `${video.data('src')}?ver=7`
-      if (device.mobile()) {
-        src = `${video.data('src-mob')}?ver=7`
-      }
-      video
-        .attr('src', src)
-        .data('inited', true)
-        .data('loading', true)
-      //Запускаем
-      video[0].play()
-      //Прелоадер - лоадинг
-      preloader.removeClass('__play __pause').addClass('__loading')
-      return
-    }
-
-    //Видео проигрывается
-    if (video.data('playing')) {
-      video[0].pause()
-      video
-        .data('playing', false)
-        .data('paused', true)
-      preloader.removeClass('__pause __loading').addClass('__play')
-      return
-    }
-
-    //Видео на паузе
-    if (video.data('paused')) {
-      video[0].play()
-      video
-        .data('playing', true)
-        .data('paused', false)
-      preloader.removeClass('__play __loading').addClass('__pause')
-      return
-    }
-
-    //Видео проиграно до конца
-    if (video.data('played')) {
-      video[0].currentTime = 0
-      video[0].play()
-      video
-        .data('played', false)
-        .data('playing', true)
-      preloader.removeClass('__play __loading').addClass('__pause')
-    }
   }
 
   move(direction = 'next', nextSlideElem = null) {
@@ -225,8 +93,8 @@ class Slides {
     if (!nextSlide.length) return
 
     this.busy = true
-    //Снимаем флаг просмотренности для видео на слайде с которого ушли в сафари
-    if (isSafari()) {
+    //Снимаем флаг просмотренности при управлении скролом
+    if (this.scrollControl) {
       this.currentVideoElem.data('played', false)
     }
     //Генерим событие начало перехода к слайду
@@ -244,6 +112,17 @@ class Slides {
         } else {
           this.menuButtonElem.removeClass('__hidden')
         }
+        //Если скролл не управляемый
+        //видео уже подгружено
+        //видео не просматривается в данный момент
+        //видео еще не просмотрено, то запускаем его
+        if(!this.scrollControl &&
+          this.currentVideoElem.length &&
+          this.currentVideoElem.data('loaded') &&
+          !this.currentVideoElem.data('played') &&
+          !this.currentVideoElem.data('playing')) {
+          this.fallbackPlayVideo(this.currentVideoElem)
+        }
         //Даем скролу остановится
         //Инерция у скрола большая на мак ос и маленькая у всех остальных
         let delay = 100
@@ -256,21 +135,18 @@ class Slides {
   }
 
   resizeAdjust() {
-    if (device.desktop()) {
-      if (this.currentSlideElem.is('.__first')) {
-        $.scrollTo($('body'), 400)
-        return
-      }
-      $.scrollTo(this.currentSlideElem, 400)
+    if (this.currentSlideElem.is('.__first')) {
+      $.scrollTo($('body'), 400)
+      return
     }
+    $.scrollTo(this.currentSlideElem, 400)
   }
 
   fallbackWheelListener(e) {
     e.preventDefault()
-    //Если переход или подгрузка видео в процессе, то ничего не делаем
+    //Если переход в процессе, то ничего не делаем
     if (this.busy) return
 
-    //Направление скрола
     let delta = e.originalEvent.deltaY
     if (delta === 0) return
     let direction = 'next'
@@ -278,26 +154,6 @@ class Slides {
       direction = 'prev'
     }
 
-    //Если мы скролим вниз и внутри слайда есть
-    //загруженное
-    //не запущенное видео
-    //не просмотренное
-    //Т.е. при первом скроле запускаем видео а дальше всегда при скроле переходим к следующему слайду
-    if (direction === 'next' &&
-      this.currentVideoElem.length &&
-      this.currentVideoElem.data('loaded') &&
-      !this.currentVideoElem.data('played') &&
-      !this.currentVideoElem.data('playing')) {
-      this.fallbackPlayVideo(this.currentVideoElem)
-      this.busy = true
-      //Даем скролу остановится
-      setTimeout(() => {
-        this.busy = false
-      }, 1500)
-      return
-    }
-
-    //Переходим к следующему слайду
     this.move(direction)
   }
 
@@ -479,6 +335,15 @@ class Slides {
         .find('.preloader-icon-percents')
         .text('100%')
       preloaderElem.fadeOut(300)
+      //Если скролом не управляем, то дадим сигнал что видео можно запустить
+      if (!this.scrollControl) {
+        setTimeout(() => {
+          //Если мы сейчас на том же слайде что и видео, то запустим видео
+          if (this.currentVideoElem.is(videoElem)) {
+            this.fallbackPlayVideo(videoElem)
+          }
+        }, 400)
+      }
     }
   }
 }
@@ -488,5 +353,3 @@ $(document).ready(() => {
     new Slides({elem: $(elem)})
   })
 })
-
-

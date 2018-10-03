@@ -1,4 +1,6 @@
 import 'intersection-observer'
 import '@/pages/index/animations'
-import '@/pages/index/vh-slides'
 import '@/pages/index/sound'
+import '@/pages/index/main'
+import '@/pages/index/slides-desktop'
+import '@/pages/index/slides-mobile'

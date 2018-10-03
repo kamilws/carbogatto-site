@@ -6,10 +6,19 @@ import isSafari from '@/components/is_safari'
 class Slides {
   constructor(options) {
     if (!device.desktop()) return
-
     this.elem = options.elem
     this.menuButtonElem = this.elem.find('.menu-button')
     this.busy = false
+    //Управляется ли скролл (он управляется только в сафари)
+    this.scrollControl = location.href.indexOf('?scrollControl') !== -1 && device.macos() && isSafari()
+    //В сафари есть кнопка управления скролом
+    if (device.macos() && isSafari()) {
+      let href = this.scrollControl ? '?' : '?scrollControl'
+      this.elem
+        .find('.top-block .scroll-icon')
+        .attr('href', href)
+        .show()
+    }
 
     window.scrollTo(0, 0)
     this.currentSlideElem = this.elem.find('.vh-slide').first()
@@ -17,9 +26,8 @@ class Slides {
     this.uploadVideo(this.currentVideoElem)
     this.initDesktopPosters()
     this.initPagination()
-    if (device.macos() && isSafari()) {
+    if (this.scrollControl) {
       $(document).on('wheel', this.wheelListener.bind(this))
-      //$(document).on('wheel', this.fallbackWheelListener.bind(this))
     } else {
       $(document).on('wheel', this.fallbackWheelListener.bind(this))
       //Запуск видео по клику на прелоадер
@@ -85,8 +93,8 @@ class Slides {
     if (!nextSlide.length) return
 
     this.busy = true
-    //Снимаем флаг просмотренности для видео на слайде с которого ушли в сафари
-    if (isSafari()) {
+    //Снимаем флаг просмотренности при управлении скролом
+    if (this.scrollControl) {
       this.currentVideoElem.data('played', false)
     }
     //Генерим событие начало перехода к слайду
@@ -103,6 +111,17 @@ class Slides {
           this.menuButtonElem.addClass('__hidden')
         } else {
           this.menuButtonElem.removeClass('__hidden')
+        }
+        //Если скролл не управляемый
+        //видео уже подгружено
+        //видео не просматривается в данный момент
+        //видео еще не просмотрено, то запускаем его
+        if(!this.scrollControl &&
+          this.currentVideoElem.length &&
+          this.currentVideoElem.data('loaded') &&
+          !this.currentVideoElem.data('played') &&
+          !this.currentVideoElem.data('playing')) {
+          this.fallbackPlayVideo(this.currentVideoElem)
         }
         //Даем скролу остановится
         //Инерция у скрола большая на мак ос и маленькая у всех остальных
@@ -125,10 +144,9 @@ class Slides {
 
   fallbackWheelListener(e) {
     e.preventDefault()
-    //Если переход или подгрузка видео в процессе, то ничего не делаем
+    //Если переход в процессе, то ничего не делаем
     if (this.busy) return
 
-    //Направление скрола
     let delta = e.originalEvent.deltaY
     if (delta === 0) return
     let direction = 'next'
@@ -136,26 +154,6 @@ class Slides {
       direction = 'prev'
     }
 
-    //Если мы скролим вниз и внутри слайда есть
-    //загруженное
-    //не запущенное видео
-    //не просмотренное
-    //Т.е. при первом скроле запускаем видео а дальше всегда при скроле переходим к следующему слайду
-    if (direction === 'next' &&
-      this.currentVideoElem.length &&
-      this.currentVideoElem.data('loaded') &&
-      !this.currentVideoElem.data('played') &&
-      !this.currentVideoElem.data('playing')) {
-      this.fallbackPlayVideo(this.currentVideoElem)
-      this.busy = true
-      //Даем скролу остановится
-      setTimeout(() => {
-        this.busy = false
-      }, 1500)
-      return
-    }
-
-    //Переходим к следующему слайду
     this.move(direction)
   }
 
@@ -337,6 +335,15 @@ class Slides {
         .find('.preloader-icon-percents')
         .text('100%')
       preloaderElem.fadeOut(300)
+      //Если скролом не управляем, то дадим сигнал что видео можно запустить
+      if (!this.scrollControl) {
+        setTimeout(() => {
+          //Если мы сейчас на том же слайде что и видео, то запустим видео
+          if (this.currentVideoElem.is(videoElem)) {
+            this.fallbackPlayVideo(videoElem)
+          }
+        }, 400)
+      }
     }
   }
 }

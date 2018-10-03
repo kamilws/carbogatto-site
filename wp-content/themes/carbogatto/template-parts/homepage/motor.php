@@ -39,7 +39,7 @@
             <div class="icons-title __yellow">4 DRIVE MODES</div>
             <div class="icons-text">features</div>
           </div>
-          <a class="button" href="#">Support</a>
+          <a class="button" href="<?php echo home_url(); ?>/support">Support</a>
         </div>
       </div>
       <div class="text-block">

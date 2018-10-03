@@ -1,0 +1,11 @@
+<IfModule mod_headers.c>
+	<FilesMatch "\.(mp4|js|css|jpg|png)$">
+   		Header set Cache-Control "max-age=2592000, must-revalidate"
+	</FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    #К видео особое внимание, поэтому дополнительно поставим expire-заголовок для верняка
+    ExpiresByType video/mp4 "access plus 1 months"
+</IfModule>

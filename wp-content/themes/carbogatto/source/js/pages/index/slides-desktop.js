@@ -19,6 +19,10 @@ class Slides {
         .attr('href', href)
         .show()
     }
+    //Из-за особенностей стилей нужно переместить все элементы .preloader в корень слайда
+    this.elem.find('.vh-slide .preloader').each((index, elem) => {
+      $(elem).closest('.vh-slide').prepend(elem)
+    })
 
     window.scrollTo(0, 0)
     this.currentSlideElem = this.elem.find('.vh-slide').first()

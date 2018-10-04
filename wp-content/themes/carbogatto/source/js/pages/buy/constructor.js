@@ -194,6 +194,7 @@ class Index {
       linksName: this.linksNameElem.text(),
       linksPrice: this.getNumPrice(this.linksPriceElem.text()),
       linksFill: this.linksNameElem.data('fill'),
+      linksCustomColor: $('input[name="individual-color"]').val(),
     }
     BikesCart.addBike(bike)
 

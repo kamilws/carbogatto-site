@@ -32,14 +32,22 @@ data-links-id=linksId,)
     input(type='hidden',
     name=`bikes[${id}][links_id]`,
     value=linksId)
-    td
-      span.color-name= `LINKS COLOR: ${linksName}`
+    td(colspan=2)
+      //Если цвет индивидуальный, то выводим одним способом, если обычный - то другим
       if linksFill === 'gradient'
-        svg.selected-color.__gradient(fill-opacity='0.01', fill='white')
-          use(xlink:href='#svg-hex')
+        .grid
+          .color-name-col
+            span.color-name= `LINKS COLOR: ${linksName}`
+            //svg.selected-color.__gradient(fill-opacity='0.01', fill='white')
+              use(xlink:href='#svg-hex')
+            span &nbsp;
+          .custom-color-col
+            span.custom-color= linksCustomColor
       else
+        span.color-name= `LINKS COLOR: ${linksName}`
         svg.selected-color(fill=linksFill): use(xlink:href='#svg-hex')
-    td(colspan=2,
+
+    td(valign="top",
     class={transparent: linksDefault})= `${linksPrice} €`
   tr
     input(type='hidden',

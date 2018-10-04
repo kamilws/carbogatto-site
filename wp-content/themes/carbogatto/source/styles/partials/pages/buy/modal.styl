@@ -98,6 +98,15 @@
             background image-url('pages/buy/carbon.png') no-repeat top center / contain
         .color-name
           float left
+        .custom-color
+          display inline-block
+          color black
+          &::before
+            content '«'
+            color #787878
+          &::after
+            content '»'
+            color #787878
   button
     float left
     padding-left 2em
@@ -185,7 +194,7 @@
             height @width
             margin -.1em 0 0 .5em
           &:last-of-type
-            width 200px
+            width 160px
           &.__quantity
             font-size .8em
             padding 0
@@ -195,6 +204,17 @@
               background-position 100% .5em
           .price
             margin .2em .8em 0 0
+          .grid
+            display grid
+            grid-template-columns auto minmax(auto, 500px)
+            .color-name-col
+              white-space nowrap
+              padding-right .3em
+            .custom-color
+              max-width 100%
+              white-space nowrap
+              overflow hidden
+              text-overflow ellipsis
     .checkbox
       em
         width 20px

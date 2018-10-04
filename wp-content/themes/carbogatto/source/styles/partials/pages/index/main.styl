@@ -117,6 +117,24 @@ section.main.index
   .relative-container
     position relative
     @extend .clearfix
+  .preloader
+    position absolute
+    left 10px
+    top 100%
+    margin -40px 0 0 0
+    background image-url('pages/index/play.png') no-repeat top center / contain
+    width 25px
+    height @width
+    z-index 3
+    &.__loading
+      background-image image-url('pages/index/preloader.png')
+      animation rotate 1s infinite
+    &.__play
+      background-image image-url('pages/index/play.png')
+    &.__replay
+      background-image image-url('pages/index/replay.png?ver=1')
+    &.__pause
+      background-image image-url('pages/index/pause.png')
   .video-container
     margin-left -(container-padding)
     margin-right @margin-left
@@ -124,25 +142,6 @@ section.main.index
     position relative
     overflow hidden
     @extend .clearfix
-    .preloader
-      position absolute
-      left 10px
-      top 100%
-      margin -40px 0 0 0
-      background image-url('pages/index/play.png') no-repeat top center / contain
-      width 25px
-      height @width
-      z-index 3
-      &.__loading
-        background-image image-url('pages/index/preloader.png')
-        animation rotate 1s infinite
-      &.__play
-        background-image image-url('pages/index/play.png')
-      &.__replay
-        background-image image-url('pages/index/replay.png?ver=1')
-      &.__pause
-        background-image image-url('pages/index/pause.png')
-
     .top-line, .bottom-line
       position absolute
       left 0
@@ -277,18 +276,18 @@ section.main.index
         top 100px
     .relative-container
       margin-top 1.5em
+    .preloader
+      top 100px
+      left auto
+      right 20px
+      width 40px
+      height @width
+      margin-top 0
     .video-container
       width initial
       margin-left initial
       margin-right @margin-left
       margin-bottom initial
-      .preloader
-        top 25%
-        left auto
-        right 20px
-        width 50px
-        height @width
-        margin-top 0
       .top-line
         top 0
     .text-block
@@ -363,14 +362,5 @@ section.main.index
         .icons-text
           margin-left 95px
           font-size 1.19em
-
       @media (min-width lup)
         transform none
-    @media (max-aspect-ratio index-small)
-      .video-container
-        .preloader
-          top 18%
-    @media (max-aspect-ratio index-medium)
-      .video-container
-        .preloader
-          top 15%

@@ -16,13 +16,17 @@ class Slides {
       this.initMobilePosters()
     } else {
       this.initDesktopPosters()
+      //Из-за особенностей стилей нужно переместить все элементы .preloader в корень слайда в десктопной верстке
+      this.elem.find('.vh-slide .preloader').each((index, elem) => {
+        $(elem).closest('.vh-slide').prepend(elem)
+      })
     }
 
     //После воспроизведения
     this.elem.find('video').on('ended', e => {
       let video = $(e.target)
       let preloader = video
-        .closest('.video-container, .video-block')
+        .closest('.vh-slide')
         .find('.preloader')
       video
         .data('playing', false)
@@ -34,7 +38,7 @@ class Slides {
     //Начало воспроизведения (после паузы или первично или заново)
     this.elem.find('video').on('playing', e => {
       let video = $(e.target)
-      let preloader = video.closest('.video-container, .video-block').find('.preloader')
+      let preloader = video.closest('.vh-slide').find('.preloader')
       //При первичной загрузке видео в iOS событие playing стреляет раньше чем реально видео начинает воспроизводится
       //поэтому если просто ориентироваться на него, то мы изменим иконку раньше чем запустится видео
       //после события playing проверяем по currentTime что видео действительно запустилось
@@ -82,12 +86,15 @@ class Slides {
     if ($(e.target).closest('.video-container, .video-block').length) {
       video = $(e.target).closest('.video-container, .video-block').find('video')
     }
+    if ($(e.target).closest('.preloader').length) {
+      video = $(e.target).closest('.vh-slide').find('video')
+    }
 
     if (!video.length) return
     if (video.data('loading')) return
 
     let preloader = video
-      .closest('.video-container, .video-block')
+      .closest('.vh-slide')
       .find('.preloader')
 
     //Первичная инициализация видео

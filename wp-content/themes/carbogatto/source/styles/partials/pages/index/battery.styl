@@ -13,8 +13,6 @@ section.main.index
       mup-video-block()
       .video-container
         margin-top 0 !important
-        .preloader
-          top 7%
       .icons-block
         right 15%
         top 15%
@@ -23,10 +21,8 @@ section.main.index
         border none !important
         padding-top 1em
         background linear-gradient(to top, rgba(black, .75), rgba(black, .75) 80%, rgba(black, 0))
-      @media (max-aspect-ratio index-medium)
-        .video-container
-          .preloader
-            top 12%
+        p
+          max-width 1350px
     @media (min-width lup)
       .icons-block
         right 20%

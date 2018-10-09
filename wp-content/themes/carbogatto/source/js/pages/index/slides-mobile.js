@@ -63,7 +63,10 @@ class Slides {
     this.elem.click(this.processMobileVideoClick.bind(this))
 
     //Видео в верхнем блоке сразу запускаем - оно идет первым
-    this.processMobileVideoClick({target: this.elem.find('.top-block video')[0]})
+    //в ios автозаупуск работает без проблем в андроиде автозапуск не работает
+    if (device.ios()) {
+      this.processMobileVideoClick({target: this.elem.find('.top-block video')[0]})
+    }
   }
 
   initDesktopPosters() {

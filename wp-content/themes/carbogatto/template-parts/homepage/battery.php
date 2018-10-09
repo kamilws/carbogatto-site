@@ -54,11 +54,9 @@
         </div>
       </div>
       <div class="text-block">
-        <p>Relaxed travelling on your daily tour of the city with an average range of 50 to 60 kilometres.
-          This is how to charge the battery: Simply remove the battery box and plug into any socket with
-          the battery charger. The battery can of course be charged whilst the box remains in the CARBO
-          GATTO. The battery box is secured against unauthorized access. The high quality BMS Battery
-          Management System protects against short circuits and excess current.</p>
+        <p>Relaxed travelling on your daily tour of the city with an average range of 50 to 60 kilometres. This is how
+          to charge the battery: Simply remove the battery box and plug into any socket with the battery charger. The
+          battery can be charged whilst the box remains inside</p>
       </div>
     </div>
   </div>

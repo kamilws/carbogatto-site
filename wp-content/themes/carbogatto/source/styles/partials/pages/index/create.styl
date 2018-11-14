@@ -8,22 +8,37 @@ section.main.index
       margin-bottom 2em
     .bike-icon
       display block
-      margin 0 auto 3em auto
-      width 285px
-      height 133px
+      margin 0 auto 4em auto
+      width 100%
+      max-width 340px
+      height 160px
     p
-      margin 0 auto 2em auto
+      margin 0 auto 4em auto
       text-align center
     .button
-      padding-left 4em
-      padding-right 4em
-      margin-bottom 2em
+      padding-left 1em
+      padding-right 2em
+      margin-bottom 4em
+    //Мобайл альбом
+    @media (max-width mup) and (min-aspect-ratio index-album)
+      .title
+        margin-bottom .4em
+      .bike-icon
+        max-width 430px
+        height 200px
+        margin-bottom .5em
+      p
+        margin-bottom .5em
+      .button
+        margin-bottom 0
 
+    //Десктоп
     @media (min-width mup)
       margin-bottom 8em
       .title
         margin-bottom 0
       .bike-icon
+        max-width none
         width 787px
         height 366px
         margin-bottom .7em

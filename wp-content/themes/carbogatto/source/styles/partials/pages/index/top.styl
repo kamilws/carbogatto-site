@@ -2,7 +2,8 @@
 
 section.main.index
   .top-block
-    height 100vh
+    min-height calc(100vh - 50px)
+    box-sizing border-box
     .preloader
       position absolute
       left 10px
@@ -23,8 +24,8 @@ section.main.index
         background-image image-url('pages/index/pause.png')
     .video-block
       position relative
-      margin-bottom 1em
       overflow hidden
+      margin-bottom 3em
       margin-left -(container-padding)
       margin-right -(container-padding)
       .bottom-line
@@ -37,19 +38,25 @@ section.main.index
         background linear-gradient(to bottom, rgba(black, .01), rgba(black, 1) 50%, rgba(black, 1))
     .text-block
       padding-bottom 1em
+    .arrow-down
+      margin-top 20px
     p
+      padding-left 1em
+      padding-right 1em
       text-align center
-    .arrow
-      width 30px
-      display block
-      margin 0 auto 0 auto
     //Телефоны альбом
     @media (max-width mup) and (min-aspect-ratio index-album)
-      height auto
-      margin-bottom 7em
+      min-height 0
+      margin-bottom 40px
       .video-block
-        margin-top -25%
+        margin-bottom 0
+        height 280px
+        video
+          margin-top -24%
+      .preloader
+        margin-top -70px
 
+    //Десктоп
     @media (min-width mup)
       mup-video-block()
       padding-top 0

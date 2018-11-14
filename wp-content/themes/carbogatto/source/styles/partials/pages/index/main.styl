@@ -99,11 +99,18 @@ section.main.index
     &.__on
       .icon
         background-image: image-url('pages/index/sound-on.svg')
+  .arrow-down
+    width 40px
+    display block
+    margin 0 auto
+    position relative
+    z-index 3
   p
     font-weight 300
-    font-size 1.33em
+    font-size 1.48em
+    line-height 1.5
   .title
-    font-size 2.04em
+    font-size 2.74em
     text-transform uppercase
     font-weight 300
     text-align center
@@ -138,7 +145,7 @@ section.main.index
   .video-container
     margin-left -(container-padding)
     margin-right @margin-left
-    margin-bottom 2em
+    margin-top 1em
     position relative
     overflow hidden
     @extend .clearfix
@@ -167,13 +174,14 @@ section.main.index
     clear both
     margin-left -(container-padding)
     margin-right @margin-left
-    padding 0 container-padding 4em container-padding
+    padding 0 container-padding 1em container-padding
   .icons-block
     position absolute
     right 0
     top calc(100% + 1.7em)
-    width 85px
+    width 110px
     overflow hidden
+    z-index 3
     .icons-line
       border-bottom 1px solid rgba(#c6c6c6, .3)
       transform translateX(-100%)
@@ -184,49 +192,52 @@ section.main.index
         border-bottom none
       .icons-icon
         position absolute
-        left 8px
+        left 6px
         top 8px
         width 16px
         height auto
         &.__battery
-          height 8.5px
+          width 21px
+          height 12px
           .__body
             opacity 0
           for num in 1 2 3 4 5 6 7 8 9 10
             .__{num}
               opacity 0
         &.__voltage
-          width 15px
+          width 19px
           height @width
           top 5px
           transform scale(.1)
           opacity 0
         &.__range
-          height 7.7px
+          width 21px
+          height 10.7px
           .wheel-left, .wheel-right, .dots, .flag
             opacity 0
         &.__speed
-          width 17.5px
-          top 3px
+          width 23.3px
+          height 16.7px
+          left 2px
           .__arrow
             transform-origin 50% 70% 0
             transform rotate(-165deg)
         &.__power
-          width 19px
-          height 10.8px
-          top 5px
+          width 25px
+          height 14.3px
+          left 2px
           opacity 0
         &.__features
-          width 20px
-          top 5px
+          width 27px
+          left 2px
           for num in 1 2 3 4
             .__{num}
               opacity 0
       .icons-title
         font-weight bold
         color #00d2ff
-        font-size .72em
-        margin-left 30px
+        font-size .95em
+        margin-left 37px
         .__number:not(.__no-margin)
           &::after
             content ' '
@@ -235,8 +246,8 @@ section.main.index
         &.__yellow
           color #e79d37
       .icons-text
-        margin-left 30px
-        font-size .72em
+        margin-left 37px
+        font-size .95em
         color rgba(#c6c6c6, .6)
         text-transform uppercase
   .button
@@ -244,17 +255,40 @@ section.main.index
     position relative
     display inline-block
     border 1px solid color-blue
-    padding .8em 3em
-    background no-repeat image-url('main/arrow-right-white.png') calc(100% - 5px) .9em / 5px
+    padding .5em 2em
+    background no-repeat image-url('main/arrow-right-white.png') calc(100% - 7px) 8px / 6px
     color white
-    font-weight 300
+    font-size 1.33em
     transition background .3s
     &:hover
       text-decoration none
       background-color rgba(white, .15)
+  //Телефоны альбом
+  @media (max-width mup) and (min-aspect-ratio index-album)
+    p
+      font-size 1.33em
+      margin 0
+    .video-container
+      height 280px
+      margin-top 20px
+      .top-line
+        top 0
+      video
+        margin-top -15%
+    .preloader
+      margin-top -60px
+    .text-block
+      margin-top -20px
+      position relative
+      z-index 3
+    .arrow-down
+      margin-top 20px
 
+  //Десктопы
   @media (min-width mup)
     overflow hidden
+    .arrow-down
+      display none
     .menu-button
       display block
       position fixed
@@ -337,14 +371,17 @@ section.main.index
           top 27px
           &.__battery
             height 25px
+            width 47px
           &.__voltage
             width 42px
             height @width
             top 20px
           &.__range
             height 22.5px
+            width 47px
           &.__speed
             width 50px
+            height 37px
             left 0
             top 17px
           &.__power

@@ -37,6 +37,7 @@
           GATTO. The battery box is secured against unauthorized access. The high quality BMS Battery
           Management System protects against short circuits and excess current.</p>
       </div>
+      <img class="arrow-down" src="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/index/arrow-down.png">
     </div>
   </div>
 </div>

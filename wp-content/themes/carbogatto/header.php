@@ -5,6 +5,7 @@ global $post;
 if (basename(get_page_template()) === 'home_page.php') {
     $no_scroll = 'no-scroll';
     $nav_class = '__black';
+    $body_class = '__black';
 }
 ?>
 
@@ -21,7 +22,7 @@ if (basename(get_page_template()) === 'home_page.php') {
 </head>
 <body data-sprite-path="<?= sprite_url() ?>"
       data-mup="1150"
-      class="<?= $no_scroll ?>">
+      class="<?= $no_scroll ?> <?= $body_class ?>">
 <nav class="main <?= $nav_class ?>">
   <a class="logo" href="<?php echo home_url(); ?>"></a>
   <svg class="close">
@@ -45,7 +46,7 @@ if (basename(get_page_template()) === 'home_page.php') {
             $about = '__active';
         }
         ?>
-      <a href="<?php echo home_url(); ?>/buy" class="<?php echo $buy; ?>">Create & buy</a>
+      <a href="<?php echo home_url(); ?>/buy" class="<?php echo $buy; ?>">Create & order</a>
       <a href="<?php echo home_url(); ?>/acces" class="<?php echo $acces; ?>">Accessories</a>
       <a class="<?php echo $about; ?>" href="<?php echo home_url(); ?>/about">About</a>
       <a class="<?php echo $gallery; ?>" href="<?php echo home_url(); ?>/gallery">Gallery</a>

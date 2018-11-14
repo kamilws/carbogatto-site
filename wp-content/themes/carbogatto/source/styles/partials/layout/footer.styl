@@ -1,12 +1,12 @@
 footer.main
   color white
   background image-url('main/bg.jpg') top center / 1300px
-  font-size 1.17em
+  font-size 1.55em
   line-height 1.5
   position relative
   border-bottom 2px solid color-blue
   .site-container
-    padding 3em .8em 7em .8em
+    padding 3em 0 7em 0
   .title
     text-transform uppercase
     margin-bottom 1em
@@ -23,21 +23,21 @@ footer.main
       letter-spacing .1em
   .social
     float right
-    width 50%
+    width 45%
     @extend .clearfix
     svg
       float left
-      width 20px
+      width 25px
       height @width
       fill color-blue
-      margin 0 17px 0 0
+      margin 0 17px 17px 0
       &.__fb
-        width 20px
+        width 25px
         height @width
         position relative
         top 2px
       &.__instagram
-        width 15px
+        width 20px
         height @width
         position relative
         top 2px
@@ -49,7 +49,7 @@ footer.main
       bottom 2.5em
       left 50%
       margin-left -7.5em
-      font-size 1.33rem
+      font-size 1.77rem
       a
         display inline-block
         margin-right .5em
@@ -67,10 +67,22 @@ footer.main
       display inline-block
       margin-bottom .3em
   .address
-    float left
-    width 50%
-    padding-right 2em
+    float right
+    width 45%
     box-sizing border-box
+  //Телефон альбом
+  @media (max-width mup) and (min-aspect-ratio index-album)
+    .grid
+      display grid
+      grid-template-columns 25% 28% 25% 22%
+      &:before, &::before, &:after, &::after
+        display none
+      > *
+        width auto
+      .social
+        order 1
+
+  //Десктоп
   @media (min-width mup)
     background-size auto
     font-size 1em

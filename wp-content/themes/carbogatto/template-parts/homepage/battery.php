@@ -58,6 +58,7 @@
           to charge the battery: Simply remove the battery box and plug into any socket with the battery charger. The
           battery can be charged whilst the box remains inside</p>
       </div>
+      <img class="arrow-down" src="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/index/arrow-down.png">
     </div>
   </div>
 </div>

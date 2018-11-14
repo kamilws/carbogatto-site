@@ -8,12 +8,25 @@ section.main.index
       z-index 2
       padding-bottom .5em
     .text-block
-      margin-right 10em
-      min-height 90px
+      margin-right 13em
     .button
       margin-top .5em
       padding-left 1.8em
-      padding-right 2.4em
+      padding-right 2.2em
+    //Телефон альбом
+    @media (max-width mup) and (min-aspect-ratio index-album)
+      .icons-block
+        width 100%
+        top calc(100% - 30px)
+        @extend .clearfix
+        .icons-row, .icons-line
+          width 110px
+          float right
+          clear both
+        .button
+          margin-top 70px
+
+    //Десктоп
     @media (min-width mup)
       mup-video-block()
       .icons-block

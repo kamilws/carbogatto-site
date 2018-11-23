@@ -2,7 +2,7 @@ import isSafari from '@/components/is_safari'
 
 class Index {
   constructor(options) {
-    //return
+    return
     this.elem = options.elem
     this.soundElem = this.elem.find('.sound')
     this.audioElem = this.soundElem.find('audio')

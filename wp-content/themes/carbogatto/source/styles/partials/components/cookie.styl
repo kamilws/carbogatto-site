@@ -1,0 +1,47 @@
+.cookie-component
+  display none
+  position fixed
+  left 0
+  bottom 0
+  width 100%
+  z-index 5
+  background black
+  color white
+  border-top 2px solid color-blue
+  text-align center
+  padding 2em 1.5em
+  box-sizing border-box
+  font-size 1.35em
+  .ct-cc-text
+    margin-bottom 1.5em
+  .ct-cc-button
+    display inline-block
+    border 1px solid color-blue
+    margin 0 .5em
+    cursor pointer
+    text-transform uppercase
+    width 10em
+    padding .7em 0
+    color white
+    &:hover
+      text-decoration none
+    &.__accept
+      background color-blue
+  //Десктоп
+  @media (min-width mup)
+    font-size 1em
+    padding 1.5em 0 1em 0
+    border-top-width 3px
+    .ct-cc-container
+      margin 0 auto
+      width 1150px
+      @extend .clearfix
+      .ct-cc-text
+        float left
+        margin-top .5em
+      .ct-cc-buttons
+        float right
+        .ct-cc-button
+          width auto
+          padding .5em 1.8em
+          font-weight bold

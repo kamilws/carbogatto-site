@@ -1,0 +1,72 @@
+section.main.subscribe
+  position relative
+  border-bottom 1px solid black
+  overflow hidden
+  video.dots
+    position absolute
+    left 0
+    bottom 0
+    width 100%
+    max-width 550px
+  .text
+    text-align center
+    color white
+    font-size 1.78em
+    margin 4em 0
+    padding 0 2.5em
+    position relative
+  .form
+    position relative
+    margin 0 auto 100px auto
+    width 240px
+    input[type=text]
+      width 100%
+      display block
+      box-sizing border-box
+      border none
+      padding .7em 1em
+      background #1c1c1c
+      color white
+      font-size 1.33em
+      outline none
+    button
+      font-size 1.33em
+      width 100%
+      display block
+      box-sizing border-box
+      border none
+      padding .7em 1em
+      color white
+      background color-blue
+      text-transform uppercase
+
+  //Десктоп
+  @media (min-width mup)
+    min-height calc(100vh - 320px)
+    margin 0
+    box-sizing border-box
+    padding 0
+    video.dots
+      width auto
+      max-width none
+      left 50%
+      margin-left -1000px
+      bottom -200px
+    .text
+      width 470px
+      font-size 1.35em
+      margin 5em auto 4em auto
+    .form
+      width 600px
+      margin-bottom 3em
+      @extend .clearfix
+      input[type=text]
+        float left
+        width 55%
+        font-size 1.16em
+      button
+        float left
+        width 45%
+        font-size 1.16em
+        font-weight bold
+        cursor pointer

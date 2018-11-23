@@ -84,7 +84,7 @@ footer.main
 
   //Десктоп
   @media (min-width mup)
-    background-size auto
+    background-size cover
     font-size 1em
     .site-container
       padding 5em 0 2.5em 0
@@ -93,6 +93,10 @@ footer.main
       margin-bottom 1.5em
     .menu
       width 27%
+      padding-left 1em
+      box-sizing border-box
+      a
+        margin-bottom 0
     .contacts
       width 27%
       clear none
@@ -104,15 +108,15 @@ footer.main
       width 215px
       padding-top 2.5em
       svg
-        width 30px
+        width 45px
         height @width
-        margin-right 2em
+        margin-right 13px
         margin-bottom 2em
         &.__fb
-          width 30px
+          width 40px
           height @width
         &.__instagram
-          width 26px
+          width 36px
           height @width
       .copy
         width auto

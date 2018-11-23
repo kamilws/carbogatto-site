@@ -4,12 +4,15 @@
   <div class="site-container">
     <div class="container grid">
       <div class="menu">
-        <div><a href="buy">Create & Order</a></div>
-        <div><a href="acces">Accessories</a></div>
-        <div><a href="gallery">Gallery</a></div>
-        <div><a href="about">About</a></div>
-        <div><a href="news">News</a></div>
-        <div><a href="support">Support</a></div>
+        <div><a href="/">Bike Tour</a></div>
+        <div><a href="/buy">Create & Order</a></div>
+        <div><a href="/about">About us</a></div>
+        <div><a href="/gallery">Subscribe</a></div>
+        <!--
+        <div><a href="/acces">Accessories</a></div>
+        <div><a href="/gallery">Gallery</a></div>
+        <div><a href="/support">Support</a></div>
+        -->
       </div>
       <div class="social">
         <a href="<?php echo $mytheme['facebook']; ?>" target="_blank">
@@ -49,6 +52,8 @@
     </div>
   </div>
 </footer>
+<?php get_partial('cookie') ?>
+
 <?php wp_footer(); ?>
 
 <?php echo $mytheme['metrika']; ?>

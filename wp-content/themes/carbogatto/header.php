@@ -4,6 +4,11 @@ global $post;
 
 if (basename(get_page_template()) === 'home_page.php') {
     $no_scroll = 'no-scroll';
+    $nav_class = '__black __index';
+    $body_class = '__black';
+}
+
+if (basename(get_page_template()) === 'gallery.php') {
     $nav_class = '__black';
     $body_class = '__black';
 }
@@ -25,33 +30,26 @@ if (basename(get_page_template()) === 'home_page.php') {
       class="<?= $no_scroll ?> <?= $body_class ?>">
 <nav class="main <?= $nav_class ?>">
   <a class="logo" href="<?php echo home_url(); ?>"></a>
-  <svg class="close">
-    <use xlink:href="#svg-close"></use>
+  <svg class="burger">
+    <use xlink:href="#svg-menu-button"></use>
   </svg>
   <div class="menu-container">
     <div class="menu">
-      <a class="__home" href="<?php echo home_url(); ?>">Home</a>
         <?php
-        if (basename(get_page_template()) === 'buy.php') {
+        if (basename(get_page_template()) === 'home_page.php') {
+            $home = '__active';
+        } elseif (basename(get_page_template()) === 'buy.php') {
             $buy = '__active';
-        } elseif (basename(get_archive_template()) === 'archive-acces.php') {
-            $acces = '__active';
-        } elseif (basename(get_archive_template()) === 'archive-news.php') {
-            $news = '__active';
-        } elseif (basename(get_archive_template()) === 'support.php') {
-            $support = '__active';
         } elseif (basename(get_page_template()) === 'gallery.php') {
-            $gallery = '__active';
+            $news = '__active';
         } elseif (basename(get_page_template()) === 'about.php') {
             $about = '__active';
         }
         ?>
-      <a href="<?php echo home_url(); ?>/buy" class="<?php echo $buy; ?>">Create & order</a>
-      <a href="<?php echo home_url(); ?>/acces" class="<?php echo $acces; ?>">Accessories</a>
-      <a class="<?php echo $about; ?>" href="<?php echo home_url(); ?>/about">About</a>
-      <a class="<?php echo $gallery; ?>" href="<?php echo home_url(); ?>/gallery">Gallery</a>
-      <a class="<?php echo $news; ?>" href="<?php echo home_url(); ?>/news">News</a>
-      <a class="<?php echo $support; ?>" href="<?php echo home_url(); ?>/support">Support</a>
+      <a class="<?php echo $home; ?>" href="<?php echo home_url(); ?>">Bike tour</a>
+      <a class="<?php echo $buy; ?>" href="<?php echo home_url(); ?>/buy">Create & order</a>
+      <a class="<?php echo $about; ?>" href="<?php echo home_url(); ?>/about">About us</a>
+      <a class="<?php echo $news; ?>" href="<?php echo home_url(); ?>/gallery">Subscribe</a>
     </div>
     <div class="social">
       <a href="#">

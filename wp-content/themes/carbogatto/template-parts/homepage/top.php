@@ -1,9 +1,9 @@
 <div class="top-block vh-slide __first">
+  <?php get_partial('homepage/scroll-icon') ?>
   <?php get_partial('homepage/desktop-preloader') ?>
   <div class="site-container">
     <div class="container">
       <div class="video-block">
-        <a href="#" class="scroll-icon"></a>
         <!--В data-duration выводим продолжительность видео. Выводим чуть меньше на пару десятых секунды, чтобы неуйти дальше чем у видео реально длинна. все уже веведено, троганить ничего не нужно-->
         <!--видео грузятся сразу preload='auto', предполагается, что они будут хорошо сжатыиначе придется что-то другое придумывать-->
         <!--К data-src станет src с расширением webm|mp4 - js это сделает-->

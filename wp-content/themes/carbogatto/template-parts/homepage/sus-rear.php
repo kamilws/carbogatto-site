@@ -1,5 +1,6 @@
 <div class="suspension-block __rear vh-slide">
-    <?php get_partial('homepage/desktop-preloader') ?>
+  <?php get_partial('homepage/scroll-icon') ?>
+  <?php get_partial('homepage/desktop-preloader') ?>
   <div class="site-container">
     <div class="container">
       <div class="title __absolute">

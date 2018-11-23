@@ -1,9 +1,3 @@
-<?php
-/*
-Template Name: About
-*/
-?>
-
 <?php wp_reset_query();
 $qo=get_queried_object();
 

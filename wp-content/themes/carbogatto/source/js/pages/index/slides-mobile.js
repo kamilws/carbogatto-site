@@ -25,14 +25,15 @@ class Slides {
     //После воспроизведения
     this.elem.find('video').on('ended', e => {
       let video = $(e.target)
-      let preloader = video
-        .closest('.vh-slide')
-        .find('.preloader')
+      let slide = video.closest('.vh-slide')
       video
         .data('playing', false)
         .data('paused', false)
         .data('played', true)
-      preloader.removeClass('__pause __loading').addClass('__play')
+      slide.find('.preloader')
+        .removeClass('__pause __loading')
+        .addClass('__play')
+      slide.find('.scroll-icon').addClass('__visible')
     })
 
     //Начало воспроизведения (после паузы или первично или заново)

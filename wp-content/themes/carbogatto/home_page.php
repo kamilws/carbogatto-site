@@ -1,8 +1,3 @@
-<?php
-/*
-Template Name: Главная страница
-*/
-?>
 <?php wp_reset_query();
 $qo = get_queried_object();
 ?>
@@ -27,6 +22,7 @@ $qo = get_queried_object();
     <?php get_partial('homepage/stand') ?>
     <?php get_partial('homepage/tyres') ?>
     <?php get_partial('homepage/create') ?>
+    <?php get_partial('homepage/keep-in-touch') ?>
 </section>
 
 <?php get_footer(); ?>

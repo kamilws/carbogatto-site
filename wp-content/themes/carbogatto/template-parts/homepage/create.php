@@ -19,7 +19,6 @@
           <a class="button" href="<?php echo home_url(); ?>/buy">Config your carbogatto</a>
         </div>
       </div>
-      <img class="arrow-down" src="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/index/arrow-down.png">
     </div>
   </div>
 </div>

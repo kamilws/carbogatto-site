@@ -479,7 +479,11 @@ $motor_price_start = "";
                   </label>
                   <div class="price"><?php echo get_field('price_conf'); ?></div>
                   <div class="title"><?php the_title(); ?></div>
-                  <div class="desc"><?php echo(get_the_excerpt()); ?></div>
+                  <div class="desc">
+                      <?php get_partial('buy/info-pop-up') ?>
+                    <span class="info-icon"></span>
+                    <span class="desc-text"><?php echo(get_the_excerpt()); ?></span>
+                  </div>
                 </div>
               <?php endif;
               while ($acces->have_posts()):

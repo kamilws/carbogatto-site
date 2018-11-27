@@ -1,5 +1,6 @@
 <div class="motor-block vh-slide">
-    <?php get_partial('homepage/desktop-preloader') ?>
+  <?php get_partial('homepage/scroll-icon') ?>
+  <?php get_partial('homepage/desktop-preloader') ?>
   <div class="site-container">
     <div class="container">
       <div class="title __absolute">Motor</div>
@@ -36,7 +37,7 @@
           <div class="icons-line"></div>
           <div class="icons-row __no-border">
               <?php get_partial('homepage/features-icon') ?>
-            <div class="icons-title __yellow">4 DRIVE MODES</div>
+            <div class="icons-title __yellow">4&nbsp;DRIVE&nbsp;MODES</div>
             <div class="icons-text">features</div>
           </div>
           <a class="button" href="<?php echo home_url(); ?>/support">Support</a>
@@ -47,6 +48,7 @@
           for the city centre. 2 kW. More powerful motors available upon request. 4 drive modes can be
           selected via the handlebar push-button: Eco / Custom / Sport / Wheely.</p>
       </div>
+      <img class="arrow-down" src="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/index/arrow-down.png">
     </div>
   </div>
 </div>

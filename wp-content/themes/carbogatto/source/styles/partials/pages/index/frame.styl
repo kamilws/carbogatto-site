@@ -6,25 +6,40 @@ section.main.index
     slide()
     .text-block
       margin-right 12em
-      min-height 110px
     .carbon
       position absolute
       right 0
-      width 90px
+      width 110px
       top calc(100% + 1.7em)
       .text
         opacity 0
         text-transform uppercase
         color rgba(#c6c6c6, .6)
-        font-size .75em
-        padding 90px 2em 2em 2em
+        font-size .95em
+        padding 130px 2em 2em 2em
         text-align center
-        background no-repeat image-url('pages/index/carbon.png') 50% 10px / 70px
+        background no-repeat image-url('pages/index/carbon.png') 50% 0 / 110px
         box-sizing border-box
       .line
         border-top 1px solid rgba(#c6c6c6, .3)
         transform translateY(-100%)
+        display none
+    //Телефоны альбом
+    @media (max-width mup) and (min-aspect-ratio index-album)
+      .text-block
+        margin-right 160px
+      .carbon
+        width 140px
+        top calc(100% - 20px)
+        z-index 3
+        .text
+          text-align left
+          padding 2em 0 2em 70px
+          background no-repeat image-url('pages/index/carbon.png') 0 10px / 50px
+        .line
+          display block
 
+    //Десктоп
     @media (min-width mup)
       mup-video-block()
       .text-block
@@ -41,6 +56,7 @@ section.main.index
           background-size 130px
           background-position 0 15px
         .line
+          display block
           border-top-width 2px
           border-bottom-width 2px
       @media (max-aspect-ratio index-small)

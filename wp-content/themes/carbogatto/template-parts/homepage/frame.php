@@ -1,5 +1,6 @@
 <div class="frame-block vh-slide">
-    <?php get_partial('homepage/desktop-preloader') ?>
+  <?php get_partial('homepage/scroll-icon') ?>
+  <?php get_partial('homepage/desktop-preloader') ?>
   <div class="site-container">
     <div class="container">
       <div class="title __absolute">Frame</div>
@@ -30,6 +31,7 @@
           everything behind them. The slender design provides for true pleasure of driving and even brings
           a smile to the faces of first-time motorbike riders.</p>
       </div>
+      <img class="arrow-down" src="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/index/arrow-down.png">
     </div>
   </div>
 </div>

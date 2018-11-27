@@ -1,5 +1,6 @@
 <div class="suspension-block __rear vh-slide">
-    <?php get_partial('homepage/desktop-preloader') ?>
+  <?php get_partial('homepage/scroll-icon') ?>
+  <?php get_partial('homepage/desktop-preloader') ?>
   <div class="site-container">
     <div class="container">
       <div class="title __absolute">
@@ -37,6 +38,7 @@
           GATTO. The battery box is secured against unauthorized access. The high quality BMS Battery
           Management System protects against short circuits and excess current.</p>
       </div>
+      <img class="arrow-down" src="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/index/arrow-down.png">
     </div>
   </div>
 </div>

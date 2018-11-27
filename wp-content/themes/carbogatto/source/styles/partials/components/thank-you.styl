@@ -1,0 +1,31 @@
+.thank-you-component
+  display none
+  position fixed
+  top 50%
+  left 50%
+  height 240px
+  width 360px
+  margin-top -120px
+  margin-left -180px
+  z-index 5
+  background #1c1c1c
+  color white
+  .ct-ty-close
+    position absolute
+    right 15px
+    top 15px
+    width 20px
+    height @width
+    fill #8e8e8e
+    cursor pointer
+  .ct-ty-title
+    text-align center
+    font-size 3em
+    margin-top 100px
+    text-transform uppercase
+  @media (min-width 650px)
+    width 540px
+    margin-left -270px
+  @media (min-width mup)
+    .ct-ty-title
+      font-size 1.9em

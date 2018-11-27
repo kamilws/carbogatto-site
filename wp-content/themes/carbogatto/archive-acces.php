@@ -17,7 +17,7 @@ Template Name: Acces
                https://monosnap.com/file/eyJUg8tCq7d7dbxlPEBp748ZVKmvVg
                и можно просто положить пару аксессуров в корзину, собрать пару байков и отправить форму, а в консоли посмотреть
                как именно были отправлены данные-->
-            <form class="ct-mc-content" id="order-form" method='post' action='<?php echo esc_url( get_template_directory_uri() ); ?>/order.php'ллз>
+            <form class="ct-mc-content" id="order-form" method='post' action='<?php echo esc_url( get_template_directory_uri() ); ?>/order.php'>
                <svg class="ct-mc-close">
                   <use xlink:href="#svg-close"></use>
                </svg>

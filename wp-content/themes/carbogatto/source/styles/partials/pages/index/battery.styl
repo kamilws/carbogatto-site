@@ -5,12 +5,22 @@ section.main.index
     container-styles()
     slide()
     .text-block
-      margin-right 10em
-      min-height 85px
+      margin-right 12em
     .icons-block
       right 0
+    //Телефоны альбом
+    @media (max-width mup) and (min-aspect-ratio index-album)
+      .video-container
+        video
+          margin-top -35%
+      .icons-block
+        top calc(100% - 30px)
+
+    //Десктоп
     @media (min-width mup)
       mup-video-block()
+      .preloader
+        bottom 130px
       .video-container
         margin-top 0 !important
       .icons-block
@@ -21,8 +31,6 @@ section.main.index
         border none !important
         padding-top 1em
         background linear-gradient(to top, rgba(black, .75), rgba(black, .75) 80%, rgba(black, 0))
-        p
-          max-width 1350px
     @media (min-width lup)
       .icons-block
         right 20%

@@ -11,6 +11,7 @@ section.main.about
     text-align center
     margin 0 0 1em 0
     text-transform uppercase
+  //About
   .about-block
     padding-top 30px
     margin 0 0 3em 0
@@ -33,6 +34,7 @@ section.main.about
         position absolute
         top 0
       combs-styles(50px)
+  //Галлерея
   .gallery-block
     .gallery
       position relative
@@ -79,6 +81,7 @@ section.main.about
               display none
             &.slick-active
               background color-blue
+  //Команда
   .team-block
     .team-item
       transition transform 1s
@@ -115,6 +118,7 @@ section.main.about
       p
         font-size 1.14em
         margin-top .3em
+  //Партнеры
   .partners-block
     .partners
       color white
@@ -130,25 +134,74 @@ section.main.about
           position relative
           img
             max-height 20px
-    .form
+  //Форма
+  .contact-form
+    display none
+    text-align center
+    background color-blue
+    padding 4em 0
+    .form-content
+      .form-input
+        border-radius 0
+        display block
+        box-sizing border-box
+        width 100%
+        margin 0 0 1.3em 0
+        padding .8em
+        outline none
+        border none
+      textarea
+        height 7em
+    .thanx
       display none
+  //Коннект
+  .connect-block
+    margin 2em 0
+    .connect-item
+      margin 0 auto 50px auto
+      max-width 320px
+      .connect-icon
+        width 80px
+        height 56px
+        margin 0 auto 20px auto
+        background top center no-repeat / contain
+        &.__partnership
+          background-image image-url('pages/about/partnership.png')
+        &.__info
+          background-image image-url('pages/about/info.png')
+        &.__press
+          background-image image-url('pages/about/press.png')
+      .connect-title
+        font-weight bold
+        font-size 2.2em
+        text-transform uppercase
+        text-align center
+        margin-bottom 15px
+      .connect-text
+        text-align center
+        font-size 1.78em
+        margin-bottom 25px
+      .connect-button
+        text-transform uppercase
+        font-weight bold
+        font-size 1.78em
+        display inline-block
+        padding .4em 1.7em
+        border 2px solid color-blue
+        cursor pointer
+  //Get in touch
+  .get-in-touch
+    .get-title
       text-align center
-      background color-blue
-      padding 4em 0
-      .form-content
-        .form-input
-          border-radius 0
-          display block
-          box-sizing border-box
-          width 100%
-          margin 0 0 1.3em 0
-          padding .8em
-          outline none
-          border none
-        textarea
-          height 7em
-      .thanx
-        display none
+      font-size 4em
+      font-weight 300
+    .get-text
+      font-size 1.78em
+      padding 0 20px
+      text-align center
+    .get-map
+      height 300px
+  //Десктоп
   @media (min-width mup)
     .title
       font-size 2.3em
@@ -225,13 +278,48 @@ section.main.about
             margin 0 2.5em
             img
               max-height 50px
-      .form
-        .form-content
-          input.form-input
-            float left
-            width calc(33.3% - .85em)
-            margin-right 1.3em
-            &:last-of-type
-              margin-right 0
-          textarea
-            height 12em
+    .contact-form
+      .form-content
+        input.form-input
+          float left
+          width calc(33.3% - .85em)
+          margin-right 1.3em
+          &:last-of-type
+            margin-right 0
+        textarea
+          height 12em
+    .connect-block
+      margin 4em 0
+      .connect-item
+        float left
+        width 30%
+        margin-right 5%
+        &.__last
+          margin-right 0
+        .connect-title
+          font-size 1.29em
+        .connect-text
+          font-size 1.03em
+        .connect-button
+          font-size 1.03em
+    .get-in-touch
+      min-height 350px
+      position relative
+      margin-bottom 60px
+      .get-title
+        font-size 2.32em
+        text-align left
+        margin-top 50px
+        width 300px
+      .get-text
+        font-size 1.03em
+        text-align left
+        padding 0
+        width 300px
+      .get-map
+        position absolute
+        height 350px
+        right 0
+        top 0
+        width calc(50% + 200px)
+

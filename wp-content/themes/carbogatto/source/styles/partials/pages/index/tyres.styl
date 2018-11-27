@@ -2,7 +2,7 @@
 
 section.main.index
   .tyres-block
-    background black no-repeat image-url('pages/index/tyres-bg.jpg?ver=2') 50% 80px / 260px
+    background no-repeat image-url('pages/index/tyres-bg.jpg?ver=2') 50% 80px / 285px
     container-styles()
     slide()
     .row
@@ -10,26 +10,48 @@ section.main.index
     .title
       margin-bottom 230px
     .logos
-      width 77px
+      margin 0 auto
+      max-width 340px
       height 80px
-      background image-url('pages/index/tyres-logos-mob.png') no-repeat top center / contain
+      background image-url('pages/index/tyres-logos.png') no-repeat top center / contain
       display block
       opacity 0
-      float right
     p
-      float left
-      width calc(100% - 90px)
-      margin -80px 0 0 0
-      min-height 80px
+      text-align center
+      margin-top 4em
+    //Мобайл альбом
+    @media (max-width mup) and (min-aspect-ratio index-album)
+      background no-repeat image-url('pages/index/tyres-bg-album.jpg?ver=2') 50% 40px / 420px
+      @extend .clearfix
+      .row
+        .title
+          margin-bottom 290px
+        &.__text
+          float left
+          width calc(100% - 140px)
+          p
+            margin-top 0
+            text-align left
+        &.__logos
+          float right
+          margin-top -40px
+          .logos
+            margin 0
+            width 100px
+            height 114px
+            background image-url('pages/index/tyres-logos-mob.png') no-repeat top center / contain
+      .arrow-down
+        clear both
 
+    //Десктоп
     @media (min-width mup)
-      background-size auto
-      background-position 50% 100px
+      background no-repeat image-url('pages/index/tyres-bg-desktop.jpg?ver=2') 50% 80px / auto
       padding-bottom 5em
       margin-bottom -1px
       .logos
+        max-width none
         width 450px
-        height 33px
+        height 60px
         margin 0 auto 2em auto
         background-image image-url('pages/index/tyres-logos.png')
         float none
@@ -47,16 +69,20 @@ section.main.index
         background none
         display grid
         grid-auto-flow column
-        grid-template-rows 1.8fr 100px 1fr
+        grid-template-rows 1.8fr 1fr 100px
+        &:before, &::before, &:after, &::after
+          display none
         .row
           &.__title
-            background 50% calc(100% + 70px) image-url('pages/index/tyres-bg.jpg?ver=2') no-repeat
+            background image-url('pages/index/tyres-bg-desktop.jpg?ver=2') no-repeat 50% calc(50% + 100px) / auto
           .title, .logos
             margin-bottom 0
+          &.__text
+            padding-top 2em
       @media (min-height 800px)
-        grid-template-rows 1.6fr 150px 1fr
+        grid-template-rows 1.6fr 1fr 150px
       @media (max-aspect-ratio index-large)
         min-height 0
-        grid-template-rows 420px 100px auto
+        grid-template-rows 420px auto 100px
         margin-bottom 6em
 

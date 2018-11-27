@@ -6,8 +6,8 @@ section.main.index
     slide()
     .logos
       position absolute
-      top 130px
-      right 10px
+      top -80px
+      right 15px
       width 110px
       height 65px
       display block
@@ -15,26 +15,28 @@ section.main.index
       z-index 2
       background image-url('pages/index/sus-logos-mob.png') no-repeat top center / contain
     .text-block
-      padding-right 15em
       position relative
-      min-height 170px
+      text-align center
+      margin-top 9em
     .bike
       position absolute
-      top calc(100% + 2em)
-      right 0
-      width 110px
+      top 100%
+      left 0
+      width 220px
+      @extend .clearfix
       text-transform uppercase
       color rgba(#c6c6c6, .6)
-      font-size .75em
-      padding 80px 2em 2.5em 2em
+      font-size .94em
+      padding 25px 2em 2.5em 2em
       text-align center
-      border-top 1px solid rgba(#c6c6c6, .3)
-      border-bottom 1px solid rgba(#c6c6c6, .3)
       box-sizing border-box
+      span
+        float right
+        width 60px
       .icon
         position absolute
-        top 10px
-        left -10px
+        top 0
+        left 0
         width 130px
         height 64px
         .bike-icon
@@ -47,11 +49,40 @@ section.main.index
           top 5%
           width 45%
           opacity 0
+    //Телефон альбом
+    @media (max-width mup) and (min-aspect-ratio index-album)
+      .logos
+        top 20px
+        right -280px
+      .text-block
+        text-align left
+        margin-top -20px
+        margin-right 280px
+      .bike
+        z-index 3
+        left auto
+        right 130px
+        width 160px
+        top calc(100% - 20px)
+        padding-top 80px
+        border-left 1px solid rgba(#c6c6c6, .3)
+        border-right 1px solid rgba(#c6c6c6, .3)
+        padding-bottom 0
+        span
+          display block
+          width 100px
+          margin 0 auto
+          float none
+        .icon
+          left 15px
+          top 10px
 
+    //Десктоп
     @media (min-width mup)
       mup-video-block()
       .logos
-        position static
+        position relative
+        top -10px
         width 383px
         height 93px
         background-image image-url('pages/index/sus-logos.png')
@@ -59,18 +90,23 @@ section.main.index
       .text-block
         min-height 0
       .bike
-        border-top-width 2px
-        border-bottom-width 2px
         width 500px
         font-size 1.21em
         padding 2.5em 0 2.5em 325px
         text-align left
-        right 55%
+        right 50%
+        border-top 2px solid rgba(#c6c6c6, .3)
+        border-bottom @border-top
+        box-sizing border-box
+        left auto
         .icon
           width 284px
           height 132px
           left 5px
           top 10px
+        span
+          float none
+          width initial
       //Передняя подвеска
       &.__front
         .bike

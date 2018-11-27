@@ -1,5 +1,6 @@
 <div class="stand-block vh-slide">
-    <?php get_partial('homepage/desktop-preloader') ?>
+  <?php get_partial('homepage/scroll-icon') ?>
+  <?php get_partial('homepage/desktop-preloader') ?>
   <div class="site-container">
     <div class="container">
       <div class="title __absolute">Stand</div>
@@ -28,6 +29,7 @@
           for the city centre. 2 kW. More powerful motors available upon request. 4 drive modes can be
           selected via the handlebar push-button</p>
       </div>
+      <img class="arrow-down" src="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/index/arrow-down.png">
     </div>
   </div>
 </div>

@@ -5,6 +5,7 @@ import isSafari from '@/components/is_safari'
 
 class Slides {
   constructor(options) {
+    //return
     if (!device.desktop()) return
     this.elem = options.elem
     this.menuButtonElem = this.elem.find('.menu-button')
@@ -15,14 +16,16 @@ class Slides {
     if (device.macos() && isSafari()) {
       let href = this.scrollControl ? '?' : '?scrollControl'
       this.elem
-        .find('.top-block .scroll-icon')
+        .find('.scroll-icon')
         .attr('href', href)
-        .show()
+        .find('.scroll-icon-text')
+        .text('push or scroll')
     }
+    //TODO удалить после утверждения текущей верстки
     //Из-за особенностей стилей нужно переместить все элементы .preloader в корень слайда
-    this.elem.find('.vh-slide .preloader').each((index, elem) => {
-      $(elem).closest('.vh-slide').prepend(elem)
-    })
+    //this.elem.find('.vh-slide .preloader').each((index, elem) => {
+    //  $(elem).closest('.vh-slide').prepend(elem)
+    //})
 
     window.scrollTo(0, 0)
     this.currentSlideElem = this.elem.find('.vh-slide').first()
@@ -110,12 +113,6 @@ class Slides {
         this.currentVideoElem = this.currentSlideElem.find('video')
         this.uploadVideo(this.currentVideoElem)
         this.setCurrentPagElem()
-        //Показываем/скрываем иконку меню
-        if (this.currentSlideElem.is('.__first')) {
-          this.menuButtonElem.addClass('__hidden')
-        } else {
-          this.menuButtonElem.removeClass('__hidden')
-        }
         //Если скролл не управляемый
         //видео уже подгружено
         //видео не просматривается в данный момент
@@ -163,6 +160,7 @@ class Slides {
 
   fallbackPlayVideo(videoElem) {
     let preloader = videoElem.closest('.vh-slide').find('.preloader')
+    let scrollIcon = videoElem.closest('.vh-slide').find('.scroll-icon')
     videoElem[0].currentTime = 0
     videoElem[0].play()
     videoElem.data('playing', true)
@@ -171,7 +169,8 @@ class Slides {
         played: true,
         playing: false
       })
-      preloader.show().addClass('__replay')
+      preloader.fadeIn().addClass('__replay')
+      scrollIcon.addClass('__visible')
     })
   }
 
@@ -218,6 +217,7 @@ class Slides {
     }
 
     //Переходим к следующему слайду
+    this.currentSlideElem.find('.scroll-icon').addClass('__visible')
     this.move(direction)
   }
 

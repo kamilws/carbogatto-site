@@ -50,4 +50,3 @@ $AccString.= implode("\r\n", $accData);
   "CC: kamilws73@gmail.com";
 
   mail($to,$subject,$message,$headers);
-?>

@@ -1,0 +1,67 @@
+section.main.index
+  .keep-in-touch
+    margin 0 0 3em 0
+    .keep-title
+      color white
+      text-transform uppercase
+      text-align center
+      font-size 2.74em
+      margin-bottom .5em
+    .keep-form
+      margin 0 auto
+      width 200px
+      input[type=text]
+        background none
+        border 1px solid #888
+        color white
+        width 100%
+        box-sizing border-box
+        padding .5em 1em
+        font-size 1.33em
+        margin-bottom 1em
+        outline none
+        border-radius 0
+      button
+        color white
+        text-align center
+        background color-blue
+        border none
+        width 100%
+        padding .7em 0
+        box-sizing border-box
+        font-size 1.33em
+        text-transform uppercase
+        cursor pointer
+    @media (min-width 650px)
+      .thank-you
+        width 540px
+        margin-left -270px
+      .keep-form
+        width 600px
+        @extend .clearfix
+        input[type=text]
+          float left
+          width 190px
+          margin-right 10px
+          height 2.8em
+        button
+          float left
+          width 200px
+          height 2.8em
+    //Десктоп
+    @media (min-width mup)
+      background #111111
+      margin-bottom 0
+      padding 2em 0
+      .keep-title
+        font-size 1.94em
+        margin-bottom 1em
+      .keep-form
+        width 720px
+        input[type=text]
+          font-size 1.17em
+          margin-right 15px
+          width 270px
+        button
+          font-size 1.17em
+          width 150px

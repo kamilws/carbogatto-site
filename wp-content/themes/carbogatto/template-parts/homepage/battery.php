@@ -1,5 +1,6 @@
 <div class="battery-block vh-slide">
-    <?php get_partial('homepage/desktop-preloader') ?>
+  <?php get_partial('homepage/scroll-icon') ?>
+  <?php get_partial('homepage/desktop-preloader') ?>
   <div class="site-container">
     <div class="container">
       <div class="title __absolute">Battery</div>
@@ -58,6 +59,7 @@
           to charge the battery: Simply remove the battery box and plug into any socket with the battery charger. The
           battery can be charged whilst the box remains inside</p>
       </div>
+      <img class="arrow-down" src="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/index/arrow-down.png">
     </div>
   </div>
 </div>

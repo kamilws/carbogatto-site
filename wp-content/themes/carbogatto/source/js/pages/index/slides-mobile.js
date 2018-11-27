@@ -25,14 +25,15 @@ class Slides {
     //После воспроизведения
     this.elem.find('video').on('ended', e => {
       let video = $(e.target)
-      let preloader = video
-        .closest('.vh-slide')
-        .find('.preloader')
+      let slide = video.closest('.vh-slide')
       video
         .data('playing', false)
         .data('paused', false)
         .data('played', true)
-      preloader.removeClass('__pause __loading').addClass('__play')
+      slide.find('.preloader')
+        .removeClass('__pause __loading')
+        .addClass('__play')
+      slide.find('.scroll-icon').addClass('__visible')
     })
 
     //Начало воспроизведения (после паузы или первично или заново)
@@ -55,9 +56,7 @@ class Slides {
     })
 
     //Переход ко второму слайду
-    this.elem.find('.top-block .arrow').click(() => {
-      $.scrollTo(this.elem.find('.frame-block'), 800, {offset: -60})
-    })
+    this.elem.find('.arrow-down').click(this.move.bind(this))
 
     //Обработка клика по видео
     this.elem.click(this.processMobileVideoClick.bind(this))
@@ -67,6 +66,16 @@ class Slides {
     if (device.ios()) {
       this.processMobileVideoClick({target: this.elem.find('.top-block video')[0]})
     }
+  }
+
+  move(e) {
+    let currentSlide = $(e.target).closest('.vh-slide')
+    let nextSlide = currentSlide.next('.vh-slide')
+    if (currentSlide.is('.__last')) {
+      nextSlide = $('footer.main')
+    }
+
+    $.scrollTo(nextSlide, 800, {offset: -50})
   }
 
   initDesktopPosters() {

@@ -3,6 +3,8 @@ import 'slick-carousel/slick/slick.css'
 import lozad from 'lozad'
 import 'intersection-observer'
 import 'jquery-form'
+import 'jquery.scrollto'
+import device from 'current-device'
 
 class About {
   constructor(options) {
@@ -29,27 +31,57 @@ class About {
 
         if ($(elem).hasClass('team-item')) {
           this.animateTeam($(elem))
-          return
         }
       }
     }).observe()
 
+    //Форма become a partner
     this.elem.click(e => {
       if($(e.target).closest('.become').length &&
-      this.elem[0].contains(e.target)) {
-        this.showForm()
+        this.elem[0].contains(e.target)) {
+        this.showPartnersForm()
+      }
+    })
+
+    //Форма Connect
+    this.elem.click(e => {
+      if($(e.target).closest('.connect-button').length &&
+        this.elem[0].contains(e.target)) {
+        if(!device.mobile()) {
+          this.showConnectForm()
+          return
+        }
+
+        $.scrollTo($('.connect-form-anchor'), 400, {
+          offset: -90,
+          onAfter: () => {
+            setTimeout(() => {
+              this.showConnectForm()
+            }, 300)
+          },
+        })
       }
     })
   }
 
-  showForm() {
-    let formElem = this.elem.find('.partners-block .form')
+  showConnectForm() {
+    let formElem = this.elem.find('.connect-block .contact-form')
+    this.bindAjaxToForm(formElem)
+    formElem.slideDown()
+  }
+
+  showPartnersForm() {
+    let formElem = this.elem.find('.partners-block .contact-form')
     this.elem.find('.partners-block .partners').fadeOut(400, () => {
       formElem.fadeIn()
-      formElem.ajaxForm(() => {
-        formElem.find('.form-content').fadeOut(400, () => {
-          formElem.find('.thanx').fadeIn()
-        })
+      this.bindAjaxToForm(formElem)
+    })
+  }
+
+  bindAjaxToForm(formElem) {
+    formElem.ajaxForm(() => {
+      formElem.find('.form-content').fadeOut(400, () => {
+        formElem.find('.thanx').fadeIn()
       })
     })
   }

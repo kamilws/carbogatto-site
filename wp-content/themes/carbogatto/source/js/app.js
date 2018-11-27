@@ -11,7 +11,7 @@ import '@/layout/nav'
 import '@/layout/tablet'
 
 import '@/pages/news'
-import '@/pages/about'
+import '@/pages/about/index'
 import '@/pages/gallery'
 import '@/pages/buy/index'
 import '@/pages/index/index'

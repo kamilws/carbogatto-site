@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
   <!--Модальное окно-->
-
   <div class="modal-component __order">
     <div class="ct-mc-bg"></div>
     <div class="ct-mc-content-container">
@@ -11,9 +10,6 @@
          https://monosnap.com/file/eyJUg8tCq7d7dbxlPEBp748ZVKmvVg
          и можно просто положить пару аксессуров в корзину, собрать пару байков и отправить форму, а в консоли посмотреть
          как именно были отправлены данные-->
-      <!--
-             <form method='post' action='<?php get_bloginfo('template_url'); ?>/submit.php'>  
-             -->
       <form class="ct-mc-content" id="order-form" method='post'
             action='<?php echo esc_url(get_template_directory_uri()); ?>/order.php'>
         <svg class="ct-mc-close">
@@ -88,10 +84,7 @@
       </form>
     </div>
   </div>
-
-
-  <!-- Конец Модальное окно-->
-
+  <!-- /Модальное окно -->
 
 <?php
 $frame_name_start = "Carbon1";
@@ -103,9 +96,8 @@ $battery_price_start = "";
 $motor_name_start = "";
 $motor_price_start = "";
 ?>
-
-
   <section class="main buy">
+    <!-- Top block -->
     <div class="top-block">
       <video class="dots"
              data-mob-src="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/dots-mobile.mp4"
@@ -173,8 +165,9 @@ $motor_price_start = "";
         </div>
       </div>
     </div>
+    <!-- /Top block -->
 
-
+    <!-- Total -->
     <div class="total-block">
       <div class="site-container">
         <div class="container">
@@ -182,110 +175,112 @@ $motor_price_start = "";
           <em><i>total:</i><b><span class="total-price">93 000</span><span>€</span></b></em></div>
       </div>
     </div>
+    <!-- /Total -->
     <div class="site-container">
       <div class="container">
-        <div class="color-block">
-          <div class="block-title">Color</div>
-          <div class="items">
-            <!--value - id цвета в БДdata-price - цена данного цвета
+
+        <div class="options-block">
+          <!-- Color -->
+          <div class="option color-block">
+            <div class="block-title">Main design</div>
+            <!--value - id цвета в БД data-price - цена данного цвета
                data-default - ставится только у одного цвета - цвета, который выбран по умолчанию
                у одного цвета обязательно должен сразу быть атрибут checked-->
-            <label class="item">
-              <input type="radio" name="color" checked value="Color: Carbon" data-name="Carbon"
-                     data-price="1000" data-default="true" data-fill="carbon"
-                     data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/standart.png"
-                     data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/standart_half.png">
-              <!-- <input type="radio" name="color" checked value="5" data-name="Carbon" data-price="1000" data-default="true" data-fill="carbon" data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/standart.png" data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/standart_half.png">
-                        -->
+            <div class="row">
               <svg class="hex __carbon" fill="white" fill-opacity="0.1">
                 <use xlink:href="#svg-hex"></use>
               </svg>
-              <svg class="hex-checked __carbon" fill="white" fill-opacity="0.1">
-                <use xlink:href="#svg-hex-border"></use>
-              </svg>
-              <div class="check"></div>
-            </label>
-            <label class="item">
-              <input type="radio" name="color" value="Color: Yellow" data-name="Yellow" data-price="1000"
-                     data-fill="#e5b700"
-                     data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/yellow.png"
-                     data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/yellow_half.png">
+              <label class="button">
+                <input type="radio" name="color" checked value="Color: Carbon" data-name="Carbon"
+                       data-price="1000" data-default="true" data-fill="carbon"
+                       data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/standart.png"
+                       data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/standart_half.png">
+                <em></em>
+              </label>
+              <div class="title __margin-top">Carbon</div>
+            </div>
+            <div class="row">
               <svg class="hex" fill="#e5b700">
                 <use xlink:href="#svg-hex"></use>
               </svg>
-              <svg class="hex-checked" fill="#e5b700">
-                <use xlink:href="#svg-hex-border"></use>
-              </svg>
-              <div class="check"></div>
-            </label>
-            <label class="item">
-              <input type="radio" name="color" value="Color: Black-red" data-name="Black-red"
-                     data-price="1000" data-fill="#212121"
-                     data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/black-red.png"
-                     data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/black-red_half.png">
+              <label class="button">
+                <input type="radio" name="color" value="Color: Yellow" data-name="Yellow" data-price="1000"
+                       data-fill="#e5b700"
+                       data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/yellow.png"
+                       data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/yellow_half.png">
+                <em></em>
+              </label>
+              <div class="title __margin-top">Yellow</div>
+            </div>
+            <div class="row">
               <svg class="hex" fill="#212121">
                 <use xlink:href="#svg-hex"></use>
               </svg>
-              <svg class="hex-checked" fill="#212121">
-                <use xlink:href="#svg-hex-border"></use>
-              </svg>
-              <div class="check"></div>
-            </label>
-            <label class="item">
-              <input type="radio" name="color" value="Color: Red" data-name="Red" data-price="1000"
-                     data-fill="#9b2821"
-                     data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/red.png"
-                     data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/red_half.png">
+              <label class="button">
+                <input type="radio" name="color" value="Color: Black-red" data-name="Black-red"
+                       data-price="1000" data-fill="#212121"
+                       data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/black-red.png"
+                       data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/black-red_half.png">
+                <em></em>
+              </label>
+              <div class="title __margin-top">Black-red</div>
+            </div>
+            <div class="row">
               <svg class="hex" fill="#9b2821">
                 <use xlink:href="#svg-hex"></use>
               </svg>
-              <svg class="hex-checked" fill="#9b2821">
-                <use xlink:href="#svg-hex-border"></use>
-              </svg>
-              <div class="check"></div>
-            </label>
-            <label class="item">
-              <input type="radio" name="color" value="Color: Blue" data-name="Blue" data-price="1000"
-                     data-fill="#00a4f0"
-                     data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/blue.png"
-                     data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/blue_half.png">
+              <label class="button">
+                <input type="radio" name="color" value="Color: Red" data-name="Red" data-price="1000"
+                       data-fill="#9b2821"
+                       data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/red.png"
+                       data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/red_half.png">
+                <em></em>
+              </label>
+              <div class="title __margin-top">Red</div>
+            </div>
+            <div class="row">
               <svg class="hex" fill="#00a4f0">
                 <use xlink:href="#svg-hex"></use>
               </svg>
-              <svg class="hex-checked" fill="#00a4f0">
-                <use xlink:href="#svg-hex-border"></use>
-              </svg>
-              <div class="check"></div>
-            </label>
-            <label class="item">
-              <input type="radio" name="color" value="Color: Camo" data-name="Camo" data-price="1000"
-                     data-fill="#806b2a"
-                     data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/camo.png"
-                     data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/camo_half.png">
+              <label class="button">
+                <input type="radio" name="color" value="Color: Blue" data-name="Blue" data-price="1000"
+                       data-fill="#00a4f0"
+                       data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/blue.png"
+                       data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/blue_half.png">
+                <em></em>
+              </label>
+              <div class="title __margin-top">Blue</div>
+            </div>
+            <div class="row">
               <svg class="hex" fill="#806b2a">
                 <use xlink:href="#svg-hex"></use>
               </svg>
-              <svg class="hex-checked" fill="#806b2a">
-                <use xlink:href="#svg-hex-border"></use>
-              </svg>
-              <div class="check"></div>
-            </label>
-            <label class="item">
-              <input type="radio" name="color" value="Color: White" data-name="White" data-price="500"
-                     data-fill="white"
-                     data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/white.png"
-                     data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/white_half.png">
+              <label class="button">
+                <input type="radio" name="color" value="Color: Camo" data-name="Camo" data-price="1000"
+                       data-fill="#806b2a"
+                       data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/camo.png"
+                       data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/camo_half.png">
+                <em></em>
+              </label>
+              <div class="title __margin-top">Camo</div>
+            </div>
+            <div class="row">
               <svg class="hex" fill="white">
                 <use xlink:href="#svg-hex-border-grey"></use>
               </svg>
-              <svg class="hex-checked" fill="white">
-                <use xlink:href="#svg-hex-border"></use>
-              </svg>
-              <div class="check"></div>
-            </label>
+              <label class="button">
+                <input type="radio" name="color" value="Color: White" data-name="White" data-price="500"
+                       data-fill="white"
+                       data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/white.png"
+                       data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/white_half.png">
+                <em></em>
+              </label>
+              <div class="title __margin-top">White</div>
+            </div>
           </div>
-        </div>
-        <div class="options-block">
+          <!-- /Color -->
+
+          <!-- Details -->
           <div class="option details-control">
             <div class="block-title">Handles, Supports AND Seat COLOR</div>
             <div class="row">
@@ -298,8 +293,7 @@ $motor_price_start = "";
                        data-default="true" data-fill="black"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/black_details.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/black_details_half.png">
-                <div class="button-component __blue __select">select</div>
-                <div class="button-component __white __unselect">unselect</div>
+                <em></em>
               </label>
               <!--При изменении радиокнопки цена из блока .price учитывается в пересчетеобщей цены (блок .total-price выше) и для вывода в шапке (блок .frame-price, .battery-price, ...)-->
               <div class="price">250 €</div>
@@ -314,13 +308,15 @@ $motor_price_start = "";
                        data-fill="#9b2821"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/red_details.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/red_details_half.png">
-                <div class="button-component __blue __select">select</div>
-                <div class="button-component __white __unselect">unselect</div>
+                <em></em>
               </label>
               <div class="price">150 €</div>
               <div class="title __margin-top">Red</div>
             </div>
           </div>
+          <!-- /Details -->
+
+          <!-- Links -->
           <div class="option links-control">
             <div class="block-title">Links Color</div>
             <div class="row">
@@ -333,8 +329,7 @@ $motor_price_start = "";
                   data-default="true" data-fill="#adc3c5"
                   data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/allim_links.png"
                   data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/allim_links_half.png">
-                <div class="button-component __blue __select">select</div>
-                <div class="button-component __white __unselect">unselect</div>
+                <em></em>
               </label>
               <!--При изменении радиокнопки цена из блока .price учитывается в пересчетеобщей цены (блок .total-price выше) и для вывода в шапке (блок .frame-price, .battery-price, ...)-->
               <div class="price">200 €</div>
@@ -348,8 +343,7 @@ $motor_price_start = "";
                 <input type="radio" name="links" value="Links Color: Black Matted" data-fill="black"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/black_links.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/black_links_half.png">
-                <div class="button-component __blue __select">select</div>
-                <div class="button-component __white __unselect">unselect</div>
+                <em></em>
               </label>
               <div class="price">100 €</div>
               <div class="title __margin-top">Black Matted</div>
@@ -360,143 +354,119 @@ $motor_price_start = "";
                 <input type="radio" name="links" value="Individual Color: " data-fill="gradient"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/allim_links.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/allim_links_half.png">
-                <div class="button-component __blue __select">select</div>
-                <div class="button-component __white __unselect">unselect</div>
+                <em></em>
               </label>
               <div class="title __margin-top __individual">Individual Color</div>
               <input class="individual" placeholder="Describe your wishes" form="order-form"
                      name="individual-color">
             </div>
           </div>
+          <!-- /Links -->
+
+          <!-- Frame -->
           <div class="option frame-control">
             <div class="block-title">Frame</div>
-
-
-            <!--FRAME Loop starts-->
               <?php
-              //	$acces=new WP_Query("post_type=config");
               $acces = new WP_Query(array(
-                      'post_type' => 'config',
-                      'config_category' => 'FRAME'
-                  )
-              );
-
-
+                  'post_type' => 'config',
+                  'config_category' => 'FRAME'));
               if ($acces->have_posts()):
                   $acces->the_post();
                   ?>
-
-
                 <div class="row">
                   <label class="button">
                     <input type="radio"
                            value="Frame: <?php echo the_title(); ?> Price: <?php echo get_field('price_conf'); ?>"
-                           checked name="frame"> <!--checked> Отмечен-->
-                    <div class="button-component __blue __select">select</div>
-                    <div class="button-component __white __unselect">unselect</div>
+                           checked name="frame">
+                    <em></em>
                   </label>
                   <div class="price"><?php echo get_field('price_conf'); ?></div>
                   <div class="title"><?php the_title(); ?></div>
-                  <div class="desc"><?php echo(get_the_excerpt()); ?></div>
+                  <div class="desc">
+                      <?php get_partial('buy/info-pop-up') ?>
+                    <span class="info-icon"></span>
+                    <span class="desc-text"><?php echo(get_the_excerpt()); ?></span>
+                  </div>
                 </div>
               <?php endif;
               while ($acces->have_posts()):
                   $acces->the_post();
                   ?>
-                <!--Item-->
                   <?php $post_id2 = get_the_ID(); ?>
                 <div class="row">
                   <label class="button">
                     <input type="radio"
                            value="Frame: <?php echo the_title(); ?> Price: <?php echo get_field('price_conf'); ?>"
                            name="frame">
-                    <div class="button-component __blue __select">select</div>
-                    <div class="button-component __white __unselect">unselect</div>
+                    <em></em>
                   </label>
                   <div class="price"><?php echo get_field('price_conf'); ?></div>
                   <div class="title"><?php the_title(); ?></div>
-                  <div class="desc"><?php echo(get_the_excerpt()); ?></div>
+                  <div class="desc">
+                      <?php get_partial('buy/info-pop-up') ?>
+                    <span class="info-icon"></span>
+                    <span class="desc-text"><?php echo(get_the_excerpt()); ?></span>
+                  </div>
                 </div>
-                <!--end Item-->
-
-              <?php
-              endwhile;
-              //	endif;
-              ?>
-
-
-            <!--FRAME Loop ends-->
+              <?php endwhile; ?>
           </div>
+          <!-- /Frame -->
 
-
+          <!-- Battery -->
           <div class="option battery-control">
             <div class="block-title">Battery</div>
-
-            <!--BATTARY Loop starts-->
               <?php
-              //	$acces=new WP_Query("post_type=config");
               $acces = new WP_Query(array(
-                      'post_type' => 'config',
-                      'config_category' => 'BATTERY'
-                  )
-              );
+                  'post_type' => 'config',
+                  'config_category' => 'BATTERY'));
               if ($acces->have_posts()):
                   $acces->the_post();
                   ?>
-
-
-                <div class="row">
-                  <label class="button">
-                    <input type="radio"
-                           value="Battery: <?php echo the_title(); ?>  Price: <?php echo get_field('price_conf'); ?>"
-                           checked name="battery"> <!--checked> Отмечен-->
-                    <div class="button-component __blue __select">select</div>
-                    <div class="button-component __white __unselect">unselect</div>
-                  </label>
-                  <div class="price"><?php echo get_field('price_conf'); ?></div>
-                  <div class="title"><?php the_title(); ?></div>
-                  <div class="desc"><?php echo(get_the_excerpt()); ?></div>
-                </div>
-              <?php endif;
-              while ($acces->have_posts()):
-                  $acces->the_post();
-                  ?>
-                <!--Item-->
                 <div class="row">
                   <label class="button">
                     <input type="radio"
                            value="Battery: <?php echo the_title(); ?>  Price: <?php echo get_field('price_conf'); ?>"
                            checked name="battery">
-                    <div class="button-component __blue __select">select</div>
-                    <div class="button-component __white __unselect">unselect</div>
+                    <em></em>
                   </label>
                   <div class="price"><?php echo get_field('price_conf'); ?></div>
                   <div class="title"><?php the_title(); ?></div>
-                  <div class="desc"><?php echo(get_the_excerpt()); ?></div>
+                  <div class="desc">
+                      <?php get_partial('buy/info-pop-up') ?>
+                    <span class="info-icon"></span>
+                    <span class="desc-text"><?php echo(get_the_excerpt()); ?></span>
+                  </div>
                 </div>
-                <!--end Item-->
-
-              <?php
-              endwhile;
-              //	endif;
-              ?>
-            <!--BATTARY Loop ends-->
-
-
+              <?php endif;
+              while ($acces->have_posts()):
+                  $acces->the_post();
+                  ?>
+                <div class="row">
+                  <label class="button">
+                    <input type="radio"
+                           value="Battery: <?php echo the_title(); ?>  Price: <?php echo get_field('price_conf'); ?>"
+                           checked name="battery">
+                    <em></em>
+                  </label>
+                  <div class="price"><?php echo get_field('price_conf'); ?></div>
+                  <div class="title"><?php the_title(); ?></div>
+                  <div class="desc">
+                      <?php get_partial('buy/info-pop-up') ?>
+                    <span class="info-icon"></span>
+                    <span class="desc-text"><?php echo(get_the_excerpt()); ?></span>
+                  </div>
+                </div>
+              <?php endwhile; ?>
           </div>
+          <!-- /Battery -->
 
-
+          <!-- Motor -->
           <div class="option motor-control">
             <div class="block-title">Motor</div>
-
-            <!--Loop starts-->
               <?php
-              //	$acces=new WP_Query("post_type=config");
               $acces = new WP_Query(array(
-                      'post_type' => 'config',
-                      'config_category' => 'MOTOR'
-                  )
-              );
+                  'post_type' => 'config',
+                  'config_category' => 'MOTOR'));
               if ($acces->have_posts()):
                   $acces->the_post();
                   ?>
@@ -504,9 +474,8 @@ $motor_price_start = "";
                   <label class="button">
                     <input type="radio"
                            value="Motor: <?php echo the_title(); ?> Price: <?php echo get_field('price_conf'); ?>"
-                           checked name="motor"> <!--checked> Отмечен-->
-                    <div class="button-component __blue __select">select</div>
-                    <div class="button-component __white __unselect">unselect</div>
+                           checked name="motor">
+                    <em></em>
                   </label>
                   <div class="price"><?php echo get_field('price_conf'); ?></div>
                   <div class="title"><?php the_title(); ?></div>
@@ -516,72 +485,32 @@ $motor_price_start = "";
               while ($acces->have_posts()):
                   $acces->the_post();
                   ?>
-                <!--Item-->
                 <div class="row">
                   <label class="button">
                     <input type="radio"
                            value="Motor: <?php echo the_title(); ?> Price: <?php echo get_field('price_conf'); ?>"
                            name="motor">
-                    <div class="button-component __blue __select">select</div>
-                    <div class="button-component __white __unselect">unselect</div>
+                    <em></em>
                   </label>
                   <div class="price"><?php echo get_field('price_conf'); ?></div>
                   <div class="title"><?php the_title(); ?></div>
-                  <div class="desc"><?php echo(get_the_excerpt()); ?></div>
+                  <div class="desc">
+                      <?php get_partial('buy/info-pop-up') ?>
+                    <span class="info-icon"></span>
+                    <span class="desc-text"><?php echo(get_the_excerpt()); ?></span>
+                  </div>
                 </div>
-                <!--end Item-->
-
-              <?php
-              endwhile;
-              //	endif;
-              ?>
-            <!--Loop ends-->
-
-
-            <!--<div class="row">
-               <label class="button">
-                  <input type="radio" name="motor" checked>
-                  <div class="button-component __blue __select">select</div>
-                  <div class="button-component __white __unselect">unselect</div>
-               </label>
-               <div class="price">24 000 €</div>
-               <div class="title">GT-1080</div>
-               <div class="desc">Info about item</div>
-            </div>
-            <div class="row">
-               <label class="button">
-                  <input type="radio" name="motor">
-                  <div class="button-component __blue __select">select</div>
-                  <div class="button-component __white __unselect">unselect</div>
-               </label>
-               <div class="price">25 000 €</div>
-               <div class="title">GT-1100</div>
-               <div class="desc">Info about item</div>
-            </div>
-            <div class="row">
-               <label class="button">
-                  <input type="radio" name="motor">
-                  <div class="button-component __blue __select">select</div>
-                  <div class="button-component __white __unselect">unselect</div>
-               </label>
-               <div class="price">26 000 €</div>
-               <div class="title">GTX-1200</div>
-               <div class="desc">Info about item Info about item Info about item about item Info about item</div>
-            </div>-->
+              <?php endwhile; ?>
           </div>
+          <!-- /Motor -->
 
-
+          <!-- Tyres -->
           <div class="option tyres-control">
             <div class="block-title">Tyres</div>
-
-            <!--Tyres Loop starts-->
               <?php
-              //	$acces=new WP_Query("post_type=config");
               $acces = new WP_Query(array(
-                      'post_type' => 'config',
-                      'config_category' => 'TYRES'
-                  )
-              );
+                  'post_type' => 'config',
+                  'config_category' => 'TYRES'));
               if ($acces->have_posts()):
                   $acces->the_post();
                   ?>
@@ -589,44 +518,41 @@ $motor_price_start = "";
                   <label class="button">
                     <input type="radio"
                            value="Tyres: <?php echo the_title(); ?> Price: <?php echo get_field('price_conf'); ?>"
-                           checked name="tyres"> <!--checked> Отмечен-->
-                    <div class="button-component __blue __select">select</div>
-                    <div class="button-component __white __unselect">unselect</div>
+                           checked name="tyres">
+                    <em></em>
                   </label>
                   <div class="price"><?php echo get_field('price_conf'); ?></div>
                   <div class="title"><?php the_title(); ?></div>
-                  <div class="desc"><?php echo(get_the_excerpt()); ?></div>
+                  <div class="desc">
+                      <?php get_partial('buy/info-pop-up') ?>
+                    <span class="info-icon"></span>
+                    <span class="desc-text"><?php echo(get_the_excerpt()); ?></span>
+                  </div>
                 </div>
               <?php endif;
               while ($acces->have_posts()):
                   $acces->the_post();
                   ?>
-                <!--Item-->
                 <div class="row">
                   <label class="button">
                     <input type="radio"
                            value="Tyres: <?php echo the_title(); ?> Price: <?php echo get_field('price_conf'); ?>"
                            name="tyres">
-                    <div class="button-component __blue __select">select</div>
-                    <div class="button-component __white __unselect">unselect</div>
+                    <em></em>
                   </label>
                   <div class="price"><?php echo get_field('price_conf'); ?></div>
                   <div class="title"><?php the_title(); ?></div>
-                  <div class="desc"><?php echo(get_the_excerpt()); ?></div>
+                  <div class="desc">
+                      <?php get_partial('buy/info-pop-up') ?>
+                    <span class="info-icon"></span>
+                    <span class="desc-text"><?php echo(get_the_excerpt()); ?></span>
+                  </div>
                 </div>
-                <!--end Item-->
-
-              <?php
-              endwhile;
-              //	endif;
-              ?>
-            <!--Tyres Loop ends-->
-
+              <?php endwhile; ?>
           </div>
+          <!-- /Tyres -->
         </div>
       </div>
     </div>
   </section>
-
-
 <?php get_footer(); ?>

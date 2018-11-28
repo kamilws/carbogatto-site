@@ -1,52 +1,38 @@
 <?php
-  $firstname = $_POST['firstname'];
-  //$email = $_POST['email'];
-  $tel = $_POST['tel'];
- 
- //Acces Congig vars
-   $individual_color = $_POST['individual-color'];
- //  $tyres = $_POST['tyres_id'];
+$message = '<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width">
+</head>
+<body style="width: 100% !important; min-width: 100%; padding: 20px; box-sizing: border-box; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; color: #000000; font-family: \'Helvetica\', \'Arial\', sans-serif; font-weight: normal; text-align: left; line-height: 19px; font-size: 14px; margin: 0;">';
 
-$bikesArray = $_POST['bikes'];
-//$bike = array_pop($bikesArray);
-//$tyres = $bikesArray[1];
-//$comma_separated = implode(";", $bikesArray);
-//list($month, $day, $year) = split('[/.-]', $bikesArray);
+$message .= "<p>New order from Carbogatto</p>";
+$message .= "<p>Client name: {$_POST['firstname']} <br> Email: {$_POST['email']} <br> Phone: {$_POST['tel']}</p>";
 
-
-
-//foreach ($_POST['bikes'] as $key => $bikeData) {
-//print_r($bikeData);
-//$bikeString2 = $bikeString . $bikeData;
-//}
-
-/*
+$tdStyle = 'color: #787878; border-top: 1px solid #00d2ff; border-bottom: 1px solid #00d2ff; padding: 7px 0;';
+$i = 1;
 foreach ($_POST['bikes'] as $key => $bikeData) {
-$bikeString = implode("\r\n", $bikeData);
-$bikeQuant = array_shift($bikeString);
+    $message .= "<h3 style='margin: 0 0 10px 0;'>BIKE $i</h3>";
+    $message .= '<table style="border-collapse: collapse; width: 100%; margin-bottom: 25px;">';
+    $message .= "<tr><td style='$tdStyle'>{$bikeData['color_id']}</td></tr>";
+    $message .= "<tr><td style='$tdStyle'>{$bikeData['links_id']}";
+    if ($_POST['individual-color']) {
+        $message .= ": {$_POST['individual-color']}";
+    }
+    $message .= "</td></tr>";
+    $message .= "<tr><td style='$tdStyle'>{$bikeData['details_id']}</td></tr>";
+    $message .= "<tr><td style='$tdStyle'>{$bikeData['frame_id']}</td></tr>";
+    $message .= "<tr><td style='$tdStyle'>{$bikeData['battery_id']}</td></tr>";
+    $message .= "<tr><td style='$tdStyle'>{$bikeData['motor_id']}</td></tr>";
+    $message .= "<tr><td style='$tdStyle'>{$bikeData['tyres_id']}</td></tr>";
+    $message .= "<tr><td style='$tdStyle'>Quantity: {$bikeData['quantity']}</td></tr>";
+
+    $message .= '</table>';
+    $i++;
 }
-*/
-
-$bikeString = '';
-foreach ($_POST['bikes'] as $key => $bikeData) {
-$bikeString.= implode("\r\n", $bikeData);
-}
+$message .= '</body></html>';
 
 
-$AccString = '';
-foreach ($_POST['acc'] as $key => $accData) {
-$AccString.= implode("\r\n", $accData);
-}
-
-
-  $from = $_POST['email'];
-  $message = $_POST['textarea'];
-
-  $to = "carbogatto@driveeco.co";
-  $subject = "Order by Carbogatto";
-  
-  $message = "Hello!" . "\r\n" . "New order from Carbogatto:" . "\r\n" . $firstname . "\r\n" . $from . "\r\n" . $tel . "\r\n" . "Bike Configs:" . "\r\n" . $individual_color . "\r\n" . $bikeString . "\r\n" . "ACCESSORIES:" . "\r\n" . $AccString;
-  $headers = "From: " . $email . "\r\n" .
-  "CC: kamilws73@gmail.com";
-
-  mail($to,$subject,$message,$headers);
+require_once 'utils/utils.mail.php';
+send_mail("carbogatto@driveeco.co", "Order by Carbogatto", $message);

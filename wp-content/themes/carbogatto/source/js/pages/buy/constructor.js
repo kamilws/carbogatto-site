@@ -24,9 +24,9 @@ class Index {
     this.tyresControlElem = this.elem.find('.tyres-control')
     this.colorControlElem = this.elem.find('.color-block input[type=radio]')
     this.viewControlElem = this.elem.find('.view input[type=radio]')
-    this.bikeElem = this.elem.find('.top-block .bike')
-    this.detailsElem = this.elem.find('.top-block .details')
-    this.linksElem = this.elem.find('.top-block .links')
+    this.bikeElem = this.elem.find('.bike-images-block .bike')
+    this.detailsElem = this.elem.find('.bike-images-block .details')
+    this.linksElem = this.elem.find('.bike-images-block .links')
     this.orderModalElem = $('.modal-component.__order')
 
     this.frameControlElem.on('change', (event) => {
@@ -168,32 +168,32 @@ class Index {
       colorPrice: +colorRadioElem.data('price'),
       colorFill: colorRadioElem.data('fill'),
       colorDefault: !!colorRadioElem.data('default'),
-      frameId: this.frameNameElem.data('id'),
-      frameDefault: this.frameNameElem.data('default'),
-      frameName: this.frameNameElem.text(),
-      framePrice: this.getNumPrice(this.framePriceElem.text()),
-      batteryId: this.batteryNameElem.data('id'),
-      batteryDefault: !!this.batteryNameElem.data('default'),
-      batteryName: this.batteryNameElem.text(),
-      batteryPrice: this.getNumPrice(this.batteryPriceElem.text()),
-      motorId: this.motorNameElem.data('id'),
-      motorDefault: !!this.motorNameElem.data('default'),
-      motorName: this.motorNameElem.text(),
-      motorPrice: this.getNumPrice(this.motorPriceElem.text()),
-      tyresId: this.tyresNameElem.data('id'),
-      tyresDefault: !!this.tyresNameElem.data('default'),
-      tyresName: this.tyresNameElem.text(),
-      tyresPrice: this.getNumPrice(this.tyresPriceElem.text()),
-      detailsId: this.detailsNameElem.data('id'),
-      detailsDefault: !!this.detailsNameElem.data('default'),
-      detailsName: this.detailsNameElem.text(),
-      detailsPrice: this.getNumPrice(this.detailsPriceElem.text()),
-      detailsFill: this.detailsNameElem.data('fill'),
-      linksId: this.linksNameElem.data('id'),
-      linksDefault: !!this.linksNameElem.data('default'),
-      linksName: this.linksNameElem.text(),
-      linksPrice: this.getNumPrice(this.linksPriceElem.text()),
-      linksFill: this.linksNameElem.data('fill'),
+      frameId: this.frameNameElem.first().data('id'),
+      frameDefault: this.frameNameElem.first().data('default'),
+      frameName: this.frameNameElem.first().text(),
+      framePrice: this.getNumPrice(this.framePriceElem.first().text()),
+      batteryId: this.batteryNameElem.first().data('id'),
+      batteryDefault: !!this.batteryNameElem.first().data('default'),
+      batteryName: this.batteryNameElem.first().text(),
+      batteryPrice: this.getNumPrice(this.batteryPriceElem.first().text()),
+      motorId: this.motorNameElem.first().data('id'),
+      motorDefault: !!this.motorNameElem.first().data('default'),
+      motorName: this.motorNameElem.first().text(),
+      motorPrice: this.getNumPrice(this.motorPriceElem.first().text()),
+      tyresId: this.tyresNameElem.first().data('id'),
+      tyresDefault: !!this.tyresNameElem.first().data('default'),
+      tyresName: this.tyresNameElem.first().text(),
+      tyresPrice: this.getNumPrice(this.tyresPriceElem.first().text()),
+      detailsId: this.detailsNameElem.first().data('id'),
+      detailsDefault: !!this.detailsNameElem.first().data('default'),
+      detailsName: this.detailsNameElem.first().text(),
+      detailsPrice: this.getNumPrice(this.detailsPriceElem.first().text()),
+      detailsFill: this.detailsNameElem.first().data('fill'),
+      linksId: this.linksNameElem.first().data('id'),
+      linksDefault: !!this.linksNameElem.first().data('default'),
+      linksName: this.linksNameElem.first().text(),
+      linksPrice: this.getNumPrice(this.linksPriceElem.first().text()),
+      linksFill: this.linksNameElem.first().data('fill'),
       linksCustomColor: $('input[name="individual-color"]').val(),
     }
     BikesCart.addBike(bike)
@@ -211,12 +211,12 @@ class Index {
   }
 
   setTotal() {
-    let total = parseInt(this.framePriceElem.text().replace(/\s/g, ''))
-    total += parseInt(this.batteryPriceElem.text().replace(/\s/g, ''))
-    total += parseInt(this.motorPriceElem.text().replace(/\s/g, ''))
-    total += parseInt(this.tyresPriceElem.text().replace(/\s/g, ''))
-    total += parseInt(this.detailsPriceElem.text().replace(/\s/g, ''))
-    total += parseInt(this.linksPriceElem.text().replace(/\s/g, '')) || 0
+    let total = parseInt(this.framePriceElem.first().text().replace(/\s/g, ''))
+    total += parseInt(this.batteryPriceElem.first().text().replace(/\s/g, ''))
+    total += parseInt(this.motorPriceElem.first().text().replace(/\s/g, ''))
+    total += parseInt(this.tyresPriceElem.first().text().replace(/\s/g, ''))
+    total += parseInt(this.detailsPriceElem.first().text().replace(/\s/g, ''))
+    total += parseInt(this.linksPriceElem.first().text().replace(/\s/g, '')) || 0
 
 
     let totalText = total.toString().replace(/./g, (c, i, a) => {

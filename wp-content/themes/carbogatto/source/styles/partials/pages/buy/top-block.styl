@@ -1,0 +1,283 @@
+section.main.buy
+  //Params table
+  .params-table
+    border-collapse collapse
+    font-size .8em
+    margin-bottom 2em
+    td
+      border-top 1px solid darken(color-blue, 50%)
+      border-bottom 1px solid darken(color-blue, 50%)
+      padding .5em
+      text-align right
+      &:first-of-type
+        color #787878
+        span
+          text-transform uppercase
+          &::after
+            content ' '
+        em
+          font-style normal
+      &:last-of-type
+        padding-right 0
+  //Fixed block
+  .fixed-block
+    position fixed
+    top 48px
+    width 100%
+    left 0
+    box-sizing border-box
+    background #171717
+    z-index 2
+    color white
+    .container
+      padding-top 10px
+      padding-bottom 10px
+    .title
+      text-transform uppercase
+      font-size 1.5em
+      margin-bottom .2em
+    .total
+      font-size 1.2em
+      i
+        text-transform uppercase
+        font-style normal
+        font-weight bold
+      b
+        color color-blue
+    .params-table, .main-view
+      display none
+    .button-component
+      margin .4em 0 .5em 0
+      font-size 1.33em
+      padding .5em .8em
+    //Картинки байка
+    .bike-images-block
+      position absolute
+      right 0
+      top 0
+      background black
+      width 150px
+      height 100%
+      overflow hidden
+      video.dots
+        position absolute
+        left 0
+        bottom -30%
+        width 100%
+      .bike
+        position relative
+        z-index 1
+      .details
+        position absolute
+        left 0
+        top 0
+        width 100%
+        z-index 1
+      .links
+        position absolute
+        left 0
+        top 0
+        width 100%
+        z-index 1
+  //Top
+  .top-block
+    background black
+    color white
+    padding 2em 0 0 0
+    position relative
+    z-index 3
+    overflow hidden
+    .site-container
+      position relative
+      z-index 2
+    video.dots
+      position absolute
+      left 50%
+      top -30%
+      z-index 1
+      width 700px
+      max-width none
+      margin-left -350px
+      @media (min-width 370px)
+        top -20%
+      @media (min-width 450px)
+        top -10%
+    .title
+      text-transform uppercase
+      font-size 1.9em
+      text-align center
+      font-weight 300
+      margin 0 auto .5em auto
+      letter-spacing .1em
+    .view
+      text-transform uppercase
+      font-size .69em
+      width 15em
+      @extend .clearfix
+      margin 0 auto
+      &-title
+        margin .6em 1em 0 0
+        float left
+      &-value
+        float left
+        @extend .clearfix
+        label
+          float left
+          cursor pointer
+          input[type=radio]
+            display none
+          span
+            display inline-block
+            padding .4em 1em
+            border 1px solid color-blue
+            color color-blue
+          input[type=radio]:checked + span
+            color black
+            background color-blue
+    .bike
+      display block
+      width 100%
+      margin 0 auto 30px auto
+      position relative
+    .details
+      position absolute
+      left 0
+      top 43px
+      width 100%
+    .links
+      position absolute
+      left 0
+      top 44px
+      width 100%
+    .params
+      margin-bottom 1.3em
+      position relative
+      .button
+        position relative
+        text-align center
+      .button-component
+        margin-bottom 0
+        padding-left 2.5em
+        padding-right @padding-left
+        position relative
+        z-index 2
+  //Total
+  .total-block
+    color white
+    background #171717
+    @extend .clearfix
+    text-transform uppercase
+    padding 1.5em 0
+    font-size .9em
+    margin-bottom 1em
+    position relative
+    z-index 3
+    small
+      font-size 1em
+      float left
+      color #787878
+    em
+      font-style normal
+      float right
+      i
+        font-style normal
+        margin-right .7em
+      b
+        color color-blue
+        span:first-of-type
+          &::after
+            content ' '
+
+
+  //Десктоп
+  @media (min-width mup)
+    //Fixed block
+    .fixed-block
+      top 0
+      background transparent
+      .container
+        padding 20px 0 20px 35px
+        box-sizing border-box
+        position relative
+        background #171717
+      .text-container
+        float left
+        width 180px
+        .button-component
+          padding .4em 0
+          width 100%
+          font-weight bold
+          text-align center
+        .main-view
+          display inline-block
+          opacity .4
+          &:hover
+            cursor pointer
+            text-decoration underline
+      .title
+        margin-bottom .5em
+        line-height 1.2
+      .total
+        border-top 1px solid rgba(white, .3)
+        border-bottom @border-top
+        padding .5em 0 .4em 0
+        margin-bottom .7em
+      .params-table
+        display table
+        float left
+        margin-left 220px
+        width 300px
+        td
+          text-align left
+          &:nth-of-type(even)
+            text-align right
+            font-weight bold
+      .bike-images-block
+        width 350px
+    //Top
+    .top-block
+      padding-top 3em
+      .site-container
+        background  image-url('pages/buy/bg.png') no-repeat -15px 100%
+      video.dots
+        top 50px
+        width 2000px
+        margin-left -1000px
+      .title
+        font-size 2.3em
+        width auto
+        margin-bottom 170px
+        margin-left 3em
+      .view
+        position absolute
+        left 3em
+        top .7em
+        z-index 2
+      .bike
+        width auto
+        max-width none
+        position absolute
+        left -55px
+        top -40px
+      .links
+        width auto
+        left -55px
+        top -40px
+      .details
+        width auto
+        left -55px
+        top -40px
+      .params
+        @extend .clearfix
+        margin-bottom 3.5em
+        .params-table
+          float right
+          margin-bottom 4em
+        .button
+          clear both
+          text-align right
+    //Total
+    .total-block
+      margin-bottom 3em
+      font-size 1.45em
+      padding .8em 0

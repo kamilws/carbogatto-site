@@ -99,9 +99,11 @@ section.main.buy
       max-width none
       margin-left -350px
       @media (min-width 370px)
-        top -20%
+        top
+      -20%
       @media (min-width 450px)
-        top -10%
+        top
+      -10%
     .title
       text-transform uppercase
       font-size 1.9em
@@ -187,19 +189,15 @@ section.main.buy
         span:first-of-type
           &::after
             content ' '
-
-
   //Десктоп
   @media (min-width mup)
     //Fixed block
     .fixed-block
       top 0
-      background transparent
       .container
-        padding 20px 0 20px 35px
+        padding 20px 0
         box-sizing border-box
         position relative
-        background #171717
       .text-container
         float left
         width 180px
@@ -233,12 +231,18 @@ section.main.buy
             text-align right
             font-weight bold
       .bike-images-block
-        width 350px
+        width 445px
+        right -60px
+        .bike, .links, .details
+          top -30px
+          left -30px
+          max-width none
+          width calc(100% + 30px)
     //Top
     .top-block
       padding-top 3em
       .site-container
-        background  image-url('pages/buy/bg.png') no-repeat -15px 100%
+        background image-url('pages/buy/bg.png') no-repeat -15px 100%
       video.dots
         top 50px
         width 2000px

@@ -189,13 +189,14 @@ $production = get_field('production');
         <div class="button-component become">Become a partner</div>
       </div>
       <!--Форма отпраляется аяксом. От сервера ожидается просто статус 200-->
-      <form class="contact-form">
+      <form class="contact-form" action="<?= esc_url(get_template_directory_uri()) ?>/email-form.php" method="post">
         <div class="container form-content">
           <div class="title">Become a partner</div>
-          <input class="form-input" placeholder="NAME" required>
-          <input class="form-input" placeholder="EMAIL" required>
-          <input class="form-input" placeholder="PHONE NUMBER" type="phone" required>
-          <textarea class="form-input" placeholder="INTRODUCE YOURSELF" required></textarea>
+          <input type="hidden" name="form" value="Become a partner">
+          <input class="form-input" placeholder="NAME" required name="name">
+          <input class="form-input" placeholder="EMAIL" required name="email">
+          <input class="form-input" placeholder="PHONE NUMBER" type="phone" required name="phone">
+          <textarea class="form-input" placeholder="INTRODUCE YOURSELF" required name="text"></textarea>
           <button class="button-component __black">Apply</button>
         </div>
         <div class="thanx">
@@ -235,12 +236,13 @@ $production = get_field('production');
       </div>
       <div class="connect-form-anchor"></div>
       <!--Форма отпраляется аяксом. От сервера ожидается просто статус 200-->
-      <form class="contact-form">
+      <form class="contact-form" action="<?= esc_url(get_template_directory_uri()) ?>/email-form.php" method="post">
         <div class="container form-content">
-          <input class="form-input" placeholder="NAME" required>
-          <input class="form-input" placeholder="EMAIL" required>
-          <input class="form-input" placeholder="PHONE NUMBER" type="phone" required>
-          <textarea class="form-input" placeholder="INTRODUCE YOURSELF" required></textarea>
+          <input type="hidden" name="form" value="Connect">
+          <input class="form-input" placeholder="NAME" required name="name">
+          <input class="form-input" placeholder="EMAIL" required name="email">
+          <input class="form-input" placeholder="PHONE NUMBER" type="phone" required name="phone">
+          <textarea class="form-input" placeholder="INTRODUCE YOURSELF" required name="text"></textarea>
           <button class="button-component __black">Apply</button>
         </div>
         <div class="thanx">

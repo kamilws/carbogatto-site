@@ -7,7 +7,7 @@
         <div><a href="/">Bike Tour</a></div>
         <div><a href="/buy">Create & Order</a></div>
         <div><a href="/about">About us</a></div>
-        <div><a href="/gallery">Subscribe</a></div>
+        <div><a href="/subscribe">Subscribe</a></div>
         <!--
         <div><a href="/acces">Accessories</a></div>
         <div><a href="/gallery">Gallery</a></div>

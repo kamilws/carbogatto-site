@@ -137,7 +137,12 @@ $motor_price_start = "";
               </label>
               <!--При изменении радиокнопки цена из блока .price учитывается в пересчетеобщей цены (блок .total-price выше) и для вывода в шапке (блок .frame-price, .battery-price, ...)-->
               <div class="price"><?= $price ?> €</div>
-              <div class="title __margin-top">Black</div>
+              <div class="title __margin-top __with-hex">Black</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
             <div class="row">
               <svg class="hex" fill="#9b2821">
@@ -152,7 +157,12 @@ $motor_price_start = "";
                 <em></em>
               </label>
               <div class="price"><?= $price ?> €</div>
-              <div class="title __margin-top">Red</div>
+              <div class="title __margin-top __with-hex">Red</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
           </div>
           <!-- /Details -->
@@ -174,7 +184,12 @@ $motor_price_start = "";
               </label>
               <!--При изменении радиокнопки цена из блока .price учитывается в пересчетеобщей цены (блок .total-price выше) и для вывода в шапке (блок .frame-price, .battery-price, ...)-->
               <div class="price"><?= $price ?> €</div>
-              <div class="title __margin-top">Allunium Matted</div>
+              <div class="title __margin-top __with-hex">Allunium Matted</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
             <div class="row">
               <svg class="hex" fill="black">
@@ -188,7 +203,12 @@ $motor_price_start = "";
                 <em></em>
               </label>
               <div class="price"><?= $price ?> €</div>
-              <div class="title __margin-top">Black Matted</div>
+              <div class="title __margin-top __with-hex">Black Matted</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
             <div class="row">
               <div class="hex __gradient"></div>

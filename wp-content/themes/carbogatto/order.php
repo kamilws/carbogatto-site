@@ -125,4 +125,4 @@ $message .= '</body></html>';
 require_once 'utils/utils.mail.php';
 //send_mail("webmaster@maximumufa.ru", "Order by Carbogatto", $message);
 send_mail("carbogatto@driveeco.co", "Order by Carbogatto", $message);
-//echo $message;
+echo $message;

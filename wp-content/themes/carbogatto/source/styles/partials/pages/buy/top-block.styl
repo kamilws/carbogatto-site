@@ -1,5 +1,9 @@
 section.main.buy
-//Params table
+  padding-top 590px
+  transition padding-top .4s
+  &.__small-pad
+    padding-top 280px
+  //Params table
   .params-table
     border-collapse collapse
     font-size .8em
@@ -19,77 +23,16 @@ section.main.buy
           font-style normal
       &:last-of-type
         padding-right 0
-  //Fixed block
-  /*
-  .fixed-block
-    position fixed
-    top 48px
-    width 100%
-    left 0
-    box-sizing border-box
-    background #171717
-    z-index 2
-    color white
-    .container
-      padding-top 10px
-      padding-bottom 10px
-    .title
-      text-transform uppercase
-      font-size 1.5em
-      margin-bottom .2em
-    .total
-      font-size 1.2em
-      i
-        text-transform uppercase
-        font-style normal
-        font-weight bold
-      b
-        color color-blue
-    .params-table, .main-view
-      display none
-    .button-component
-      margin .4em 0 .5em 0
-      font-size 1.33em
-      padding .5em .8em
-    //Картинки байка
-    .bike-images-block
-      position absolute
-      right 0
-      top 0
-      background black
-      width 150px
-      height 100%
-      overflow hidden
-      video.dots
-        position absolute
-        left 0
-        bottom -30%
-        width 100%
-      .bike
-        position relative
-        z-index 1
-      .details
-        position absolute
-        left 0
-        top 0
-        width 100%
-        z-index 1
-      .links
-        position absolute
-        left 0
-        top 0
-        width 100%
-        z-index 1
-  */
   //Top
   .top-block
     background black
     color white
-    position sticky
+    position fixed
+    width 100%
+    max-width site-container-max-width
     top 48px
     z-index 3
-    margin-bottom 2em
-    transition height .3s
+    transition height .4s, top .4s
     height 520px
     box-sizing border-box
     .site-container
@@ -156,7 +99,7 @@ section.main.buy
         top 0
         width 100%
     .params
-      top 320px
+      bottom 100px
       width 100%
       left 0
       position absolute
@@ -209,7 +152,6 @@ section.main.buy
     //Маленький вариант
     &.__small
       height 95px
-      background #171717
       .title
         top 10px
         box-sizing border-box
@@ -245,62 +187,24 @@ section.main.buy
         right 0
         video.dots
           bottom 0
-
+      .to-main-view
+        display block
+        position absolute
+        right 150px
+        top 60px
+        color rgba(white, .5)
+        font-size 1.2em
   //Десктоп
   @media (min-width mup)
-    //Fixed block
-    /*
-    .fixed-block
-      top 0
-      .container
-        padding 20px 0
-        box-sizing border-box
-        position relative
-      .text-container
-        float left
-        width 180px
-        .button-component
-          padding .4em 0
-          width 100%
-          font-weight bold
-          text-align center
-        .main-view
-          display inline-block
-          opacity .4
-          &:hover
-            cursor pointer
-            text-decoration underline
-      .title
-        margin-bottom .5em
-        line-height 1.2
-      .total
-        border-top 1px solid rgba(white, .3)
-        border-bottom @border-top
-        padding .5em 0 .4em 0
-        margin-bottom .7em
-      .params-table
-        display table
-        float left
-        margin-left 115px
-        width 300px
-        td
-          text-align left
-          &:nth-of-type(even)
-            text-align right
-            font-weight bold
-      .bike-images-block
-        width 445px
-        right -60px
-        .bike, .links, .details
-          top -30px
-          left -30px
-          max-width none
-          width calc(100% + 30px)
-    */
+    padding-top 770px
+    &.__small-pad
+      padding-top 450px
     //Top
     .top-block
       height 670px
-      top 0
+      max-width none
+      top 65px
+      //z-index 13
       .title
         font-size 2.3em
         box-sizing border-box
@@ -316,6 +220,7 @@ section.main.buy
         top 30px
         left -60px
       .params
+        bottom auto
         top 280px
         @extend .clearfix
         .params-table
@@ -331,6 +236,7 @@ section.main.buy
         padding .8em 0
       //Маленький вариант
       &.__small
+        //top 0
         height 250px
         .title
           top 25px
@@ -381,11 +287,10 @@ section.main.buy
           video.dots
             width 100%
         .to-main-view
-          display inline-block
-          position absolute
+          right auto
+          top auto
           left 30px
           bottom 15px
-          color rgba(white, .5)
           &:hover
             text-decoration underline
             cursor pointer

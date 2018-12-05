@@ -268,4 +268,4 @@ $production = get_field('production');
 
 <?php get_footer(); ?>
 
-<script async src='//api-maps.yandex.ru/2.1/?lang=ru_RU&onload=mapsInit'></script>
+<script async src='//api-maps.yandex.ru/2.1/?lang=en_US&onload=mapsInit'></script>

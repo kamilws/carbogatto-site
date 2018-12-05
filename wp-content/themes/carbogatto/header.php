@@ -4,13 +4,17 @@ global $post;
 
 if (basename(get_page_template()) === 'home_page.php') {
     $no_scroll = 'no-scroll';
-    $nav_class = '__black __index';
+    $nav_class = '__black __index __relative';
     $body_class = '__black';
 }
 
 if (basename(get_page_template()) === 'subscribe.php') {
     $nav_class = '__black';
     $body_class = '__black';
+}
+
+if (basename(get_page_template()) === 'buy.php') {
+    $nav_class = '__black __fixed';
 }
 ?>
 

@@ -78,7 +78,7 @@
           </em>
           <span>Agree to the processing of personal data</span>
         </label>
-        <div class="terms"><a href="#">Terms of use</a></div>
+        <div class="terms"><a href="/legal" target="_blank">Terms of use</a></div>
       </div>
       <!--После заказа (когда форма будет отправлена аяксом)-->
       <div class="after-order-content">

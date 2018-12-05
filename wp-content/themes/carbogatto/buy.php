@@ -11,7 +11,7 @@ $motor_name_start = "";
 $motor_price_start = "";
 ?>
   <section class="main buy">
-    <?php get_partial('buy/top-block') ?>
+      <?php get_partial('buy/top-block') ?>
 
     <div class="site-container">
       <div class="container">
@@ -28,8 +28,9 @@ $motor_price_start = "";
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <input type="radio" name="color" checked value="Color: Carbon" data-name="Carbon"
-                       data-price="1000" data-default="true" data-fill="carbon"
+                <?php $price = 1000 ?>
+                <input type="radio" name="color" checked value="Color: Carbon || <?= $price ?>" data-name="Carbon"
+                       data-price="<?= $price ?>" data-default="true" data-fill="carbon"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/standart.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/standart_half.png">
                 <em></em>
@@ -41,7 +42,7 @@ $motor_price_start = "";
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <input type="radio" name="color" value="Color: Yellow" data-name="Yellow" data-price="1000"
+                <input type="radio" name="color" value="Color: Yellow || <?= $price ?>" data-name="Yellow" data-price="<?= $price ?>"
                        data-fill="#e5b700"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/yellow.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/yellow_half.png">
@@ -54,8 +55,8 @@ $motor_price_start = "";
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <input type="radio" name="color" value="Color: Black-red" data-name="Black-red"
-                       data-price="1000" data-fill="#212121"
+                <input type="radio" name="color" value="Color: Black-red || <?= $price ?>" data-name="Black-red"
+                       data-price="<?= $price ?>" data-fill="#212121"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/black-red.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/black-red_half.png">
                 <em></em>
@@ -67,7 +68,7 @@ $motor_price_start = "";
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <input type="radio" name="color" value="Color: Red" data-name="Red" data-price="1000"
+                <input type="radio" name="color" value="Color: Red || <?= $price ?>" data-name="Red" data-price="<?= $price ?>"
                        data-fill="#9b2821"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/red.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/red_half.png">
@@ -80,7 +81,7 @@ $motor_price_start = "";
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <input type="radio" name="color" value="Color: Blue" data-name="Blue" data-price="1000"
+                <input type="radio" name="color" value="Color: Blue || <?= $price ?>" data-name="Blue" data-price="<?= $price ?>"
                        data-fill="#00a4f0"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/blue.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/blue_half.png">
@@ -93,7 +94,7 @@ $motor_price_start = "";
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <input type="radio" name="color" value="Color: Camo" data-name="Camo" data-price="1000"
+                <input type="radio" name="color" value="Color: Camo || <?= $price ?>" data-name="Camo" data-price="<?= $price ?>"
                        data-fill="#806b2a"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/camo.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/camo_half.png">
@@ -105,8 +106,9 @@ $motor_price_start = "";
               <svg class="hex" fill="white">
                 <use xlink:href="#svg-hex-border-grey"></use>
               </svg>
+              <?php $price = 500 ?>
               <label class="button">
-                <input type="radio" name="color" value="Color: White" data-name="White" data-price="500"
+                <input type="radio" name="color" value="Color: White || <?= $price ?>" data-name="White" data-price="<?= $price ?>"
                        data-fill="white"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/white.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/white_half.png">
@@ -125,30 +127,42 @@ $motor_price_start = "";
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
+                <?php $price = 250 ?>
                 <!--В value помещаем id конкретной выбранной опцииdata-default - логика такая же как и у цвета-->
-                <input type="radio" name="details" checked value="Handles, Supports AND Seat COLOR: Black"
+                <input type="radio" name="details" checked value="Handles, Supports AND Seat COLOR: Black || <?= $price ?>"
                        data-default="true" data-fill="black"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/black_details.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/black_details_half.png">
                 <em></em>
               </label>
               <!--При изменении радиокнопки цена из блока .price учитывается в пересчетеобщей цены (блок .total-price выше) и для вывода в шапке (блок .frame-price, .battery-price, ...)-->
-              <div class="price">250 €</div>
-              <div class="title __margin-top">Black</div>
+              <div class="price"><?= $price ?> €</div>
+              <div class="title __margin-top __with-hex">Black</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
             <div class="row">
               <svg class="hex" fill="#9b2821">
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <input type="radio" name="details" value="Handles, Supports AND Seat COLOR: RED"
+                  <?php $price = 150 ?>
+                <input type="radio" name="details" value="Handles, Supports AND Seat COLOR: RED || <?= $price ?>"
                        data-fill="#9b2821"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/red_details.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/red_details_half.png">
                 <em></em>
               </label>
-              <div class="price">150 €</div>
-              <div class="title __margin-top">Red</div>
+              <div class="price"><?= $price ?> €</div>
+              <div class="title __margin-top __with-hex">Red</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
           </div>
           <!-- /Details -->
@@ -161,34 +175,45 @@ $motor_price_start = "";
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <!--В value помещаем id конкретной опцииdata-default - логика такая же как и у цвета--><input
-                  type="radio" name="links" checked value="Links Color: Allunium Matted"
+                  <?php $price = 200 ?>
+                <input type="radio" name="links" checked value="Links Color: Allunium Matted || <?= $price ?>"
                   data-default="true" data-fill="#adc3c5"
                   data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/allim_links.png"
                   data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/allim_links_half.png">
                 <em></em>
               </label>
               <!--При изменении радиокнопки цена из блока .price учитывается в пересчетеобщей цены (блок .total-price выше) и для вывода в шапке (блок .frame-price, .battery-price, ...)-->
-              <div class="price">200 €</div>
-              <div class="title __margin-top">Allunium Matted</div>
+              <div class="price"><?= $price ?> €</div>
+              <div class="title __margin-top __with-hex">Allunium Matted</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
             <div class="row">
               <svg class="hex" fill="black">
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <input type="radio" name="links" value="Links Color: Black Matted" data-fill="black"
+                  <?php $price = 100 ?>
+                <input type="radio" name="links" value="Links Color: Black Matted || <?= $price ?>" data-fill="black"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/black_links.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/black_links_half.png">
                 <em></em>
               </label>
-              <div class="price">100 €</div>
-              <div class="title __margin-top">Black Matted</div>
+              <div class="price"><?= $price ?> €</div>
+              <div class="title __margin-top __with-hex">Black Matted</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
             <div class="row">
               <div class="hex __gradient"></div>
               <label class="button">
-                <input type="radio" name="links" value="Individual Color: " data-fill="gradient"
+                <input type="radio" name="links" value="Links Color: Individual Color: || 0" data-fill="gradient"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/allim_links.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/details/allim_links_half.png">
                 <em></em>
@@ -213,7 +238,7 @@ $motor_price_start = "";
                 <div class="row">
                   <label class="button">
                     <input type="radio"
-                           value="Frame: <?php echo the_title(); ?> Price: <?php echo get_field('price_conf'); ?>"
+                           value="Frame: <?php echo the_title(); ?> || <?= get_field('price_conf'); ?>"
                            checked name="frame">
                     <em></em>
                   </label>
@@ -233,7 +258,7 @@ $motor_price_start = "";
                 <div class="row">
                   <label class="button">
                     <input type="radio"
-                           value="Frame: <?php echo the_title(); ?> Price: <?php echo get_field('price_conf'); ?>"
+                           value="Frame: <?php echo the_title(); ?> || <?php echo get_field('price_conf'); ?>"
                            name="frame">
                     <em></em>
                   </label>
@@ -262,7 +287,7 @@ $motor_price_start = "";
                 <div class="row">
                   <label class="button">
                     <input type="radio"
-                           value="Battery: <?php echo the_title(); ?>  Price: <?php echo get_field('price_conf'); ?>"
+                           value="Battery: <?php echo the_title(); ?>  || <?php echo get_field('price_conf'); ?>"
                            checked name="battery">
                     <em></em>
                   </label>
@@ -281,7 +306,7 @@ $motor_price_start = "";
                 <div class="row">
                   <label class="button">
                     <input type="radio"
-                           value="Battery: <?php echo the_title(); ?>  Price: <?php echo get_field('price_conf'); ?>"
+                           value="Battery: <?php echo the_title(); ?>  || <?php echo get_field('price_conf'); ?>"
                            checked name="battery">
                     <em></em>
                   </label>
@@ -310,7 +335,7 @@ $motor_price_start = "";
                 <div class="row">
                   <label class="button">
                     <input type="radio"
-                           value="Motor: <?php echo the_title(); ?> Price: <?php echo get_field('price_conf'); ?>"
+                           value="Motor: <?php echo the_title(); ?> || <?php echo get_field('price_conf'); ?>"
                            checked name="motor">
                     <em></em>
                   </label>
@@ -329,7 +354,7 @@ $motor_price_start = "";
                 <div class="row">
                   <label class="button">
                     <input type="radio"
-                           value="Motor: <?php echo the_title(); ?> Price: <?php echo get_field('price_conf'); ?>"
+                           value="Motor: <?php echo the_title(); ?> || <?php echo get_field('price_conf'); ?>"
                            name="motor">
                     <em></em>
                   </label>
@@ -358,7 +383,7 @@ $motor_price_start = "";
                 <div class="row">
                   <label class="button">
                     <input type="radio"
-                           value="Tyres: <?php echo the_title(); ?> Price: <?php echo get_field('price_conf'); ?>"
+                           value="Tyres: <?php echo the_title(); ?> || <?php echo get_field('price_conf'); ?>"
                            checked name="tyres">
                     <em></em>
                   </label>
@@ -377,7 +402,7 @@ $motor_price_start = "";
                 <div class="row">
                   <label class="button">
                     <input type="radio"
-                           value="Tyres: <?php echo the_title(); ?> Price: <?php echo get_field('price_conf'); ?>"
+                           value="Tyres: <?php echo the_title(); ?> || <?php echo get_field('price_conf'); ?>"
                            name="tyres">
                     <em></em>
                   </label>

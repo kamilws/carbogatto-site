@@ -5,6 +5,11 @@ nav.main
   position sticky
   top 0
   z-index 11
+  &.__fixed
+    position fixed
+    width 100%
+    box-sizing border-box
+    left 0
   .logo
     display inline-block
     width 138px
@@ -68,7 +73,8 @@ nav.main
   @media (min-width mup)
     @extend .clearfix
     padding 10px 30px 0 30px
-    position relative
+    &.__relative
+      position relative
     .logo
       width 200px
       height 45px

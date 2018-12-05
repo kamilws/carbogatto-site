@@ -4,13 +4,17 @@ global $post;
 
 if (basename(get_page_template()) === 'home_page.php') {
     $no_scroll = 'no-scroll';
-    $nav_class = '__black __index';
+    $nav_class = '__black __index __relative';
     $body_class = '__black';
 }
 
-if (basename(get_page_template()) === 'gallery.php') {
+if (basename(get_page_template()) === 'subscribe.php') {
     $nav_class = '__black';
     $body_class = '__black';
+}
+
+if (basename(get_page_template()) === 'buy.php') {
+    $nav_class = '__black __fixed';
 }
 ?>
 
@@ -40,7 +44,7 @@ if (basename(get_page_template()) === 'gallery.php') {
             $home = '__active';
         } elseif (basename(get_page_template()) === 'buy.php') {
             $buy = '__active';
-        } elseif (basename(get_page_template()) === 'gallery.php') {
+        } elseif (basename(get_page_template()) === 'subscribe.php') {
             $news = '__active';
         } elseif (basename(get_page_template()) === 'about.php') {
             $about = '__active';
@@ -49,7 +53,7 @@ if (basename(get_page_template()) === 'gallery.php') {
       <a class="<?php echo $home; ?>" href="<?php echo home_url(); ?>">Bike tour</a>
       <a class="<?php echo $buy; ?>" href="<?php echo home_url(); ?>/buy">Create & order</a>
       <a class="<?php echo $about; ?>" href="<?php echo home_url(); ?>/about">About us</a>
-      <a class="<?php echo $news; ?>" href="<?php echo home_url(); ?>/gallery">Subscribe</a>
+      <a class="<?php echo $news; ?>" href="<?php echo home_url(); ?>/subscribe">Subscribe</a>
     </div>
     <div class="social">
       <a href="#">

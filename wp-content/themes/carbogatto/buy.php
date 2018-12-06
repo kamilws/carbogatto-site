@@ -18,89 +18,128 @@ $motor_price_start = "";
 
         <div class="options-block">
           <!-- Color -->
+          <?php $price = 0 ?>
           <div class="option color-block">
             <div class="block-title">Main design</div>
-            <!--value - id цвета в БД data-price - цена данного цвета
-               data-default - ставится только у одного цвета - цвета, который выбран по умолчанию
-               у одного цвета обязательно должен сразу быть атрибут checked-->
             <div class="row">
               <svg class="hex __carbon" fill="white" fill-opacity="0.1">
                 <use xlink:href="#svg-hex"></use>
               </svg>
-              <label class="button">
-                <?php $price = 1000 ?>
-                <input type="radio" name="color" checked value="Color: Carbon || <?= $price ?>" data-name="Carbon"
-                       data-price="<?= $price ?>" data-default="true" data-fill="carbon"
-                       data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/standart.png"
-                       data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/standart_half.png">
+              <!-- Кнопка-муляж для карбона. Она всегда включена. При нажатии на нее включается дефолтный цвет - карбон -->
+              <label class="button __checked __carbon-button">
                 <em></em>
               </label>
-              <div class="title __margin-top">Carbon</div>
+              <div class="price"><?= $price ?> €</div>
+              <div class="title __margin-top __with-hex">Carbon</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
+            <!-- Скрытая кнопка для карбона -->
+            <input hidden type="checkbox" name="color" checked value="Color: Carbon || <?= $price ?>" data-name="Carbon"
+                   data-price="<?= $price ?>" data-default="true" data-fill="carbon"
+                   data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/standart.png"
+                   data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/standart_half.png">
             <div class="row">
               <svg class="hex" fill="#e5b700">
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <input type="radio" name="color" value="Color: Yellow || <?= $price ?>" data-name="Yellow" data-price="<?= $price ?>"
+                <!--value - id цвета в БД data-price - цена данного цвета
+               data-default - ставится только у одного цвета - цвета, который выбран по умолчанию
+               у одного цвета обязательно должен сразу быть атрибут checked-->
+                <?php $price = 1000 ?>
+                <input type="checkbox" name="color" value="Color: Yellow || <?= $price ?>" data-name="Yellow" data-price="<?= $price ?>"
                        data-fill="#e5b700"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/yellow.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/yellow_half.png">
                 <em></em>
               </label>
-              <div class="title __margin-top">Yellow</div>
+              <div class="price"><?= $price ?> €</div>
+              <div class="title __margin-top __with-hex">Yellow</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
             <div class="row">
               <svg class="hex" fill="#212121">
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <input type="radio" name="color" value="Color: Black-red || <?= $price ?>" data-name="Black-red"
+                <input type="checkbox" name="color" value="Color: Black || <?= $price ?>" data-name="Black"
                        data-price="<?= $price ?>" data-fill="#212121"
-                       data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/black-red.png"
-                       data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/black-red_half.png">
+                       data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/black-red.png?ver=1"
+                       data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/black-red_half.png?ver=1">
                 <em></em>
               </label>
-              <div class="title __margin-top">Black-red</div>
+              <div class="price"><?= $price ?> €</div>
+              <div class="title __margin-top __with-hex">Black</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
             <div class="row">
               <svg class="hex" fill="#9b2821">
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <input type="radio" name="color" value="Color: Red || <?= $price ?>" data-name="Red" data-price="<?= $price ?>"
+                <input type="checkbox" name="color" value="Color: Red || <?= $price ?>" data-name="Red" data-price="<?= $price ?>"
                        data-fill="#9b2821"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/red.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/red_half.png">
                 <em></em>
               </label>
-              <div class="title __margin-top">Red</div>
+              <div class="price"><?= $price ?> €</div>
+              <div class="title __margin-top __with-hex">Red</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
             <div class="row">
               <svg class="hex" fill="#00a4f0">
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <input type="radio" name="color" value="Color: Blue || <?= $price ?>" data-name="Blue" data-price="<?= $price ?>"
+                <input type="checkbox" name="color" value="Color: Blue || <?= $price ?>" data-name="Blue" data-price="<?= $price ?>"
                        data-fill="#00a4f0"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/blue.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/blue_half.png">
                 <em></em>
               </label>
-              <div class="title __margin-top">Blue</div>
+              <div class="price"><?= $price ?> €</div>
+              <div class="title __margin-top __with-hex">Blue</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
             <div class="row">
               <svg class="hex" fill="#806b2a">
                 <use xlink:href="#svg-hex"></use>
               </svg>
               <label class="button">
-                <input type="radio" name="color" value="Color: Camo || <?= $price ?>" data-name="Camo" data-price="<?= $price ?>"
+                <input type="checkbox" name="color" value="Color: Camo || <?= $price ?>" data-name="Camo" data-price="<?= $price ?>"
                        data-fill="#806b2a"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/camo.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/camo_half.png">
                 <em></em>
               </label>
-              <div class="title __margin-top">Camo</div>
+              <div class="price"><?= $price ?> €</div>
+              <div class="title __margin-top __with-hex">Camo</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
             <div class="row">
               <svg class="hex" fill="white">
@@ -108,13 +147,19 @@ $motor_price_start = "";
               </svg>
               <?php $price = 500 ?>
               <label class="button">
-                <input type="radio" name="color" value="Color: White || <?= $price ?>" data-name="White" data-price="<?= $price ?>"
+                <input type="checkbox" name="color" value="Color: White || <?= $price ?>" data-name="White" data-price="<?= $price ?>"
                        data-fill="white"
                        data-side="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/white.png"
                        data-half="<?php echo esc_url(get_template_directory_uri()); ?>/build/img/pages/buy/models/white_half.png">
                 <em></em>
               </label>
-              <div class="title __margin-top">White</div>
+              <div class="price"><?= $price ?> €</div>
+              <div class="title __margin-top __with-hex">White</div>
+              <div class="desc __margin-top">
+                  <?php get_partial('buy/info-pop-up') ?>
+                <span class="info-icon"></span>
+                <span class="desc-text">Info about item</span>
+              </div>
             </div>
           </div>
           <!-- /Color -->

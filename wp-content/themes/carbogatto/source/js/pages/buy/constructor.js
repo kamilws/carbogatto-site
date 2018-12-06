@@ -22,7 +22,7 @@ class Index {
     this.tyresNameElem = this.elem.find('.tyres-name')
     this.tyresPriceElem = this.elem.find('.tyres-price')
     this.tyresControlElem = this.elem.find('.tyres-control')
-    this.colorControlElem = this.elem.find('.color-block input[type=radio]')
+    this.colorControlElem = this.elem.find('.color-block input[type=checkbox]')
     this.viewControlElem = this.elem.find('.view input[type=radio]')
     this.bikeElem = this.elem.find('.bike-images-block .bike')
     this.detailsElem = this.elem.find('.bike-images-block .details')
@@ -101,6 +101,17 @@ class Index {
 
     //Изменение цвета
     this.colorControlElem.on('change', e => {
+      let val = e.target.checked
+      //Если отключили цвет, то включим дефольный цвет - карбон
+      if(!val) {
+        this.colorControlElem.filter('[data-default="true"]')
+            .prop('checked', true)
+            .trigger('change')
+        return
+      }
+      //Если включили цвет, то выключим все остальные цвета
+      this.colorControlElem.not(e.target).prop('checked', false)
+
       if(this.viewControlElem.filter(':checked').val() === 'side') {
         this.bikeElem.attr('src', $(e.target).data('side'))
         return
@@ -160,7 +171,7 @@ class Index {
   }
 
   showOrderModal() {
-    let colorRadioElem = this.elem.find('.color-block input[type=radio]:checked')
+    let colorRadioElem = this.elem.find('.color-block input[type=checkbox]:checked')
     let bike = {
       num: 1,
       colorId: colorRadioElem.val(),

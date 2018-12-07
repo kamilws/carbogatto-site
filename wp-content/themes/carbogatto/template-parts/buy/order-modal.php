@@ -40,7 +40,7 @@
 
         <!--Все таблицы заполняются динамически - js-->
         <!--Байкиdata-bike-base-price - это базовая цена самого байка, без агрегатов, цена самой основы-->
-        <?php $base_price = 80000 ?>
+        <?php $base_price = 0 ?>
         <table class="__bikes-table" data-bike-base-price="<?= $base_price ?>">
           <input type="hidden" name="base-price" value="<?= $base_price ?>">
           <tr class="__title">

@@ -1,5 +1,9 @@
 <table class="params-table" align="center">
   <tr>
+    <td><span>Color:</span><em class="color-name"></em></td>
+    <td class="color-price">0 €</td>
+  </tr>
+  <tr>
     <td><span>Details color:</span><em class="details-name"></em></td>
     <td class="details-price">0 €</td>
   </tr>

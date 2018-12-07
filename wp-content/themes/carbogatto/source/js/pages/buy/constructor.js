@@ -4,127 +4,125 @@ class Index {
   constructor(options) {
     this.elem = options.elem
     this.totalPriceElem = this.elem.find('.total-price')
+    this.colorPriceElem = this.elem.find('.color-price')
+    this.colorControlElem = this.elem.find('.color-block input[type=checkbox]')
+    this.colorNameElem = this.elem.find('.color-name')
     this.frameNameElem = this.elem.find('.frame-name')
     this.framePriceElem = this.elem.find('.frame-price')
-    this.frameControlElem = this.elem.find('.frame-control')
+    this.frameControlElem = this.elem.find('.frame-control input[type=checkbox]')
     this.batteryNameElem = this.elem.find('.battery-name')
     this.batteryPriceElem = this.elem.find('.battery-price')
-    this.batteryControlElem = this.elem.find('.battery-control')
+    this.batteryControlElem = this.elem.find('.battery-control input[type=checkbox]')
     this.motorNameElem = this.elem.find('.motor-name')
     this.motorPriceElem = this.elem.find('.motor-price')
-    this.motorControlElem = this.elem.find('.motor-control')
-    this.detailsControlElem = this.elem.find('.details-control')
+    this.motorControlElem = this.elem.find('.motor-control input[type=checkbox]')
+    this.detailsControlElem = this.elem.find('.details-control input[type=checkbox]')
     this.detailsNameElem = this.elem.find('.details-name')
     this.detailsPriceElem = this.elem.find('.details-price')
-    this.linksControlElem = this.elem.find('.links-control')
+    this.linksControlElem = this.elem.find('.links-control input[type=checkbox]')
     this.linksNameElem = this.elem.find('.links-name')
     this.linksPriceElem = this.elem.find('.links-price')
     this.tyresNameElem = this.elem.find('.tyres-name')
     this.tyresPriceElem = this.elem.find('.tyres-price')
-    this.tyresControlElem = this.elem.find('.tyres-control')
-    this.colorControlElem = this.elem.find('.color-block input[type=checkbox]')
+    this.tyresControlElem = this.elem.find('.tyres-control input[type=checkbox]')
     this.viewControlElem = this.elem.find('.view input[type=radio]')
     this.bikeElem = this.elem.find('.bike-images-block .bike')
     this.detailsElem = this.elem.find('.bike-images-block .details')
     this.linksElem = this.elem.find('.bike-images-block .links')
     this.orderModalElem = $('.modal-component.__order')
 
-    this.frameControlElem.on('change', (event) => {
-      let rowElem = $(event.target).closest('.row')
-      this.frameNameElem.data('id', $(event.target).val())
-      this.frameNameElem.data('default', !!$(event.target).data('default'))
-      this.frameNameElem.text(rowElem.find('.title').text())
-      this.framePriceElem.text(rowElem.find('.price').text())
-      this.setTotal()
+    this.frameControlElem.on('change', e => {
+      this.checkboxHelper(e, {
+        nameElem: this.frameNameElem,
+        priceElem: this.framePriceElem,
+        controlElem: this.frameControlElem,
+        noEuro: true,
+      })
     })
 
-    this.batteryControlElem.on('change', (event) => {
-      let rowElem = $(event.target).closest('.row')
-      this.batteryNameElem.data('id', $(event.target).val())
-      this.batteryNameElem.data('default', !!$(event.target).data('default'))
-      this.batteryNameElem.text(rowElem.find('.title').text())
-      this.batteryPriceElem.text(rowElem.find('.price').text())
-      this.setTotal()
+    this.batteryControlElem.on('change', e => {
+      this.checkboxHelper(e, {
+        nameElem: this.batteryNameElem,
+        priceElem: this.batteryPriceElem,
+        controlElem: this.batteryControlElem,
+        noEuro: true,
+      })
     })
 
-    this.motorControlElem.on('change', (event) => {
-      let rowElem = $(event.target).closest('.row')
-      this.motorNameElem.data('id', $(event.target).val())
-      this.motorNameElem.data('default', !!$(event.target).data('default'))
-      this.motorNameElem.text(rowElem.find('.title').text())
-      this.motorPriceElem.text(rowElem.find('.price').text())
-      this.setTotal()
+    this.motorControlElem.on('change', e => {
+      this.checkboxHelper(e, {
+        nameElem: this.motorNameElem,
+        priceElem: this.motorPriceElem,
+        controlElem: this.motorControlElem,
+        noEuro: true,
+      })
     })
 
-    this.tyresControlElem.on('change', (event) => {
-      let rowElem = $(event.target).closest('.row')
-      this.tyresNameElem.data('id', $(event.target).val())
-      this.tyresNameElem.data('default', !!$(event.target).data('default'))
-      this.tyresNameElem.text(rowElem.find('.title').text())
-      this.tyresPriceElem.text(rowElem.find('.price').text())
-      this.setTotal()
+    this.tyresControlElem.on('change', e => {
+      this.checkboxHelper(e, {
+        nameElem: this.tyresNameElem,
+        priceElem: this.tyresPriceElem,
+        controlElem: this.tyresControlElem,
+        noEuro: true,
+      })
     })
 
     //Детали
-    this.detailsControlElem.on('change', (event) => {
-      let rowElem = $(event.target).closest('.row')
-      this.detailsNameElem.data('id', $(event.target).val())
-      this.detailsNameElem.data('default', !!$(event.target).data('default'))
-      this.detailsNameElem.text(rowElem.find('.title').text())
-      this.detailsNameElem.data('fill', $(event.target).data('fill'))
-      this.detailsPriceElem.text(rowElem.find('.price').text())
-      this.setTotal()
-      let view = this.viewControlElem.filter(':checked').val()
-      let src = $(event.target).data('side')
-      if(view === 'half') {
-        src = $(event.target).data('half')
+    this.detailsControlElem.on('change', e => {
+      if(this.checkboxHelper(e, {
+        nameElem: this.detailsNameElem,
+        priceElem: this.detailsPriceElem,
+        controlElem: this.detailsControlElem
+      }) === 'default') {
+        return
       }
-      this.detailsElem.attr('src', src)
+
+      if(this.viewControlElem.filter(':checked').val() === 'side') {
+        this.detailsElem.attr('src', $(e.target).data('side'))
+        return
+      }
+      this.detailsElem.attr('src', $(e.target).data('half'))
     })
 
     //Линки
-    this.linksControlElem.on('change', (event) => {
-      let rowElem = $(event.target).closest('.row')
-      this.linksNameElem.data('id', $(event.target).val())
-      this.linksNameElem.data('default', !!$(event.target).data('default'))
-      this.linksNameElem.text(rowElem.find('.title').text())
-      this.linksNameElem.data('fill', $(event.target).data('fill'))
-      this.linksPriceElem.text(rowElem.find('.price').text())
-      this.setTotal()
-      let view = this.viewControlElem.filter(':checked').val()
-      let src = $(event.target).data('side')
-      if(view === 'half') {
-        src = $(event.target).data('half')
+    this.linksControlElem.on('change', e => {
+      if(this.checkboxHelper(e, {
+        nameElem: this.linksNameElem,
+        priceElem: this.linksPriceElem,
+        controlElem: this.linksControlElem
+      }) === 'default') {
+        return
       }
-      this.linksElem.attr('src', src)
+
+      if(this.viewControlElem.filter(':checked').val() === 'side') {
+        this.linksElem.attr('src', $(e.target).data('side'))
+        return
+      }
+      this.linksElem.attr('src', $(e.target).data('half'))
     })
 
     //Изменение цвета
     this.colorControlElem.on('change', e => {
-      let val = e.target.checked
-      //Если отключили цвет, то включим дефольный цвет - карбон
-      if(!val) {
-        this.colorControlElem.filter('[data-default="true"]')
-            .prop('checked', true)
-            .trigger('change')
+      if(this.checkboxHelper(e, {
+        nameElem: this.colorNameElem,
+        priceElem: this.colorPriceElem,
+        controlElem: this.colorControlElem
+      }) === 'default') {
         return
       }
-      //Если включили цвет, то выключим все остальные цвета
-      this.colorControlElem.not(e.target).prop('checked', false)
 
       if(this.viewControlElem.filter(':checked').val() === 'side') {
         this.bikeElem.attr('src', $(e.target).data('side'))
         return
       }
-
       this.bikeElem.attr('src', $(e.target).data('half'))
     })
 
     //Изменение вида
     this.viewControlElem.on('change', e => {
       let activeColorElem = this.colorControlElem.filter(':checked')
-      let activeDetailsElem = this.detailsControlElem.find('[type=radio]:checked')
-      let activeLinksElem = this.linksControlElem.find('[type=radio]:checked')
+      let activeDetailsElem = this.detailsControlElem.filter(':checked')
+      let activeLinksElem = this.linksControlElem.filter(':checked')
       if($(e.target).val() === 'side') {
         this.bikeElem.attr('src', activeColorElem.data('side'))
         this.detailsElem.attr('src', activeDetailsElem.data('side'))
@@ -138,28 +136,10 @@ class Index {
     })
 
     //Для первичной инициализации
-    this.elem.find('.options-block input[type=radio]:checked')
-      .trigger('change')
+    this.elem.find('.options-block input[type=checkbox]:checked')
+      .trigger('click')
 
-    //Подгрузим все картинки байков и деталей заранее
-    this.colorControlElem.each((index, elem) => {
-      let img = new Image()
-      img.src = $(elem).data('side')
-      let img2 = new Image()
-      img2.src = $(elem).data('half')
-    })
-    this.detailsControlElem.find('[type=radio]').each((index, elem) => {
-      let img = new Image()
-      img.src = $(elem).data('side')
-      let img2 = new Image()
-      img2.src = $(elem).data('half')
-    })
-    this.linksControlElem.find('[type=radio]').each((index, elem) => {
-      let img = new Image()
-      img.src = $(elem).data('side')
-      let img2 = new Image()
-      img2.src = $(elem).data('half')
-    })
+    this.loadImages()
 
     //Окно с заказом
     this.elem.click(e => {
@@ -167,6 +147,52 @@ class Index {
         this.elem[0].contains(e.target)) {
         this.showOrderModal()
       }
+    })
+  }
+
+  checkboxHelper(e, options = {nameElem: '', priceElem: '', controlElem: '', noEuro : false}) {
+    //Если отключили позицию, то включим дефолтную позицию
+    let val = e.target.checked
+    if(!val) {
+      options.controlElem.filter('[data-default="true"]')
+        .prop('checked', true)
+        .trigger('change')
+      return 'default'
+    }
+
+    let euro = ' €'
+    if(options.noEuro) euro = ''
+    options.priceElem.text(`${$(e.target).data('price')} ${euro}`)
+    options.nameElem.text($(e.target).data('name'))
+    options.nameElem.data('id', $(event.target).val())
+    options.nameElem.data('default', !!$(event.target).data('default'))
+    options.nameElem.data('fill', $(event.target).data('fill'))
+
+    this.setTotal()
+
+    //Если включили позицию, то выключим все остальные позиции
+    options.controlElem.not(e.target).prop('checked', false)
+  }
+
+  loadImages() {
+    //Подгрузим все картинки байков и деталей заранее
+    this.colorControlElem.each((index, elem) => {
+      let img = new Image()
+      img.src = $(elem).data('side')
+      let img2 = new Image()
+      img2.src = $(elem).data('half')
+    })
+    this.detailsControlElem.find('[type=checkbox]').each((index, elem) => {
+      let img = new Image()
+      img.src = $(elem).data('side')
+      let img2 = new Image()
+      img2.src = $(elem).data('half')
+    })
+    this.linksControlElem.find('[type=checkbox]').each((index, elem) => {
+      let img = new Image()
+      img.src = $(elem).data('side')
+      let img2 = new Image()
+      img2.src = $(elem).data('half')
     })
   }
 
@@ -228,7 +254,7 @@ class Index {
     total += parseInt(this.tyresPriceElem.first().text().replace(/\s/g, ''))
     total += parseInt(this.detailsPriceElem.first().text().replace(/\s/g, ''))
     total += parseInt(this.linksPriceElem.first().text().replace(/\s/g, '')) || 0
-
+    total += parseInt(this.colorPriceElem.first().text().replace(/\s/g, ''))
 
     let totalText = total.toString().replace(/./g, (c, i, a) => {
       return i && c !== "." && ((a.length - i) % 3 === 0) ? ' ' + c : c
